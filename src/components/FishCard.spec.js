@@ -4,7 +4,7 @@ import FishCard from './FishCard';
 describe('FishCard', () => {
   it('render a div with heading and list of fish', () => {
     render(
-      <DrinkCard
+      <FishCard
         fish={{
           FishLatin: 'Betta splendens',
           FishGerman: 'Siamesischer Kampffisch',
