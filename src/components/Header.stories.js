@@ -5,7 +5,4 @@ export default {
   component: Header,
 };
 
-const Template = args => <Header {...args} />;
-
-export const Default = Template.bind({});
-Default.args = {};
+export const Default = () => <Header /> ;
