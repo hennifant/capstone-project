@@ -1,0 +1,108 @@
+{
+  "fishes": [
+    {
+      "Id": "1",
+      "FishLatin": "Betta splendens",
+      "FishGerman": "Siamesischer Kampffisch",
+      "Characteristics": "5 - 7 cm",
+      "Food": "Lebend- und Frostfutter, Trockenfutter",
+      "Husbandry": "Einzelhaltung",
+      "Tanksize": "50 Liter",
+      "Age": "3 Jahre",
+      "Temperature": "24-30 Grad",
+      "Ph": "6,0 - 7,5",
+      "Difficulty": "Einfach"
+    },
+    {
+      "Id": "2",
+      "FishLatin": "Corydoras panda",
+      "FishGerman": "Panda-Panzerwels",
+      "Characteristics": "5 cm",
+      "Food": "Lebend- und Frostfutter, Trockenfutter",
+      "Husbandry": "Gruppenhaltung",
+      "Tanksize": "50 Liter",
+      "Age": "9 Jahre",
+      "Temperature": "22-26 Grad",
+      "Ph": "6,0 - 7,5",
+      "Difficulty": "Normal"
+    },
+    {
+      "Id": "3",
+      "FishLatin": "Astatoreochromis alluaudi",
+      "FishGerman": "Schneckenfresser",
+      "Characteristics": "5 - 7 cm",
+      "Food": "Lebendfutter (Schnecken), Frost- und Trockenfutter",
+      "Husbandry": "Gruppenhaltung",
+      "Tanksize": "300 Liter",
+      "Age": "-- Jahre",
+      "Temperature": "24-28 Grad",
+      "Ph": "7,5 - 8,5",
+      "Difficulty": "Normal"
+    },
+    {
+      "Id": "4",
+      "FishLatin": "Corydoras adolfoi",
+      "FishGerman": "Adolfos Panzerwels",
+      "Characteristics": "5-6 cm",
+      "Food": "Lebend- und Frostfutter, Trockenfutter",
+      "Husbandry": "Gruppenhaltung",
+      "Tanksize": "50 Liter",
+      "Age": "9 Jahre",
+      "Temperature": "23-27 Grad",
+      "Ph": "5,5 - 7,5",
+      "Difficulty": "Normal"
+    },
+    {
+      "Id": "5",
+      "FishLatin": "Sciaenochromis ahli",
+      "FishGerman": "Ahls-Maulbrüter",
+      "Characteristics": "20 cm",
+      "Food": "Lebend- und Frostfutter, Trockenfutter",
+      "Husbandry": "Männchen mit mehreren Weibchen",
+      "Tanksize": "400 Liter",
+      "Age": "12 Jahre",
+      "Temperature": "24-26 Grad",
+      "Ph": "7,5 - 8,5",
+      "Difficulty": "Einfach"
+    },
+    {
+      "Id": "6",
+      "FishLatin": "Macrognathus aculeatus",
+      "FishGerman": "Augenfleckstachelaal",
+      "Characteristics": "20 - 38 cm",
+      "Food": "Lebendfutter, Artemia, Fischfleisch",
+      "Husbandry": "Einzelhaltung/Gruppenhaltung",
+      "Tanksize": "300 Liter",
+      "Age": "--",
+      "Temperature": "23 - 28 Grad",
+      "Ph": "6,7 - 7,5",
+      "Difficulty": "Schwierig"
+    },
+    {
+      "Id": "7",
+      "FishLatin": "Poecilia sphenops var. Dalmatiner",
+      "FishGerman": "Dalmatiner-Molly",
+      "Characteristics": "6 - 10 cm",
+      "Food": "Trockenfutter, Pflanzenkost",
+      "Husbandry": "Gruppenhaltung",
+      "Tanksize": "100 Liter",
+      "Age": "5 Jahre",
+      "Temperature": "24 - 28 Grad",
+      "Ph": "7,2 - 8,2",
+      "Difficulty": "Einfach"
+    },
+    {
+      "Id": "8",
+      "FishLatin": "Myxocyprinus asiaticus",
+      "FishGerman": "Chinesischer Sauger",
+      "Characteristics": "60 cm",
+      "Food": "Frostfutter, Flockenfutter, Pelletfutter",
+      "Husbandry": "Einzelhaltung",
+      "Tanksize": "1500 Liter",
+      "Age": "--",
+      "Temperature": "15 - 27 Grad",
+      "Ph": "6,5 - 7,5",
+      "Difficulty": "Speziell"
+    }
+  ]
+}
