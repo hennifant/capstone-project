@@ -5,9 +5,8 @@ export default function Header() {
 }
 
 const Heading = styled.h1`
-  color: #28382c;
-  font-family: 'Lucida Console', Courier, monospace;
-  align-self: center;
+  color: white;
+  background-color: #28382c;
+  font-family: Arial, Helvetica, sans-serif;
   text-align: center;
-  margin: 0;
 `;

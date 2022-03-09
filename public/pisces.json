@@ -1,7 +1,6 @@
 {
   "fishes": [
     {
-      "Id": "1",
       "FishLatin": "Betta splendens",
       "FishGerman": "Siamesischer Kampffisch",
       "Characteristics": "5 - 7 cm",
@@ -14,7 +13,6 @@
       "Difficulty": "Einfach"
     },
     {
-      "Id": "2",
       "FishLatin": "Corydoras panda",
       "FishGerman": "Panda-Panzerwels",
       "Characteristics": "5 cm",
@@ -27,7 +25,6 @@
       "Difficulty": "Normal"
     },
     {
-      "Id": "3",
       "FishLatin": "Astatoreochromis alluaudi",
       "FishGerman": "Schneckenfresser",
       "Characteristics": "5 - 7 cm",
@@ -40,7 +37,6 @@
       "Difficulty": "Normal"
     },
     {
-      "Id": "4",
       "FishLatin": "Corydoras adolfoi",
       "FishGerman": "Adolfos Panzerwels",
       "Characteristics": "5-6 cm",
@@ -53,7 +49,6 @@
       "Difficulty": "Normal"
     },
     {
-      "Id": "5",
       "FishLatin": "Sciaenochromis ahli",
       "FishGerman": "Ahls-Maulbrüter",
       "Characteristics": "20 cm",
@@ -66,7 +61,6 @@
       "Difficulty": "Einfach"
     },
     {
-      "Id": "6",
       "FishLatin": "Macrognathus aculeatus",
       "FishGerman": "Augenfleckstachelaal",
       "Characteristics": "20 - 38 cm",
@@ -79,7 +73,6 @@
       "Difficulty": "Schwierig"
     },
     {
-      "Id": "7",
       "FishLatin": "Poecilia sphenops var. Dalmatiner",
       "FishGerman": "Dalmatiner-Molly",
       "Characteristics": "6 - 10 cm",
@@ -92,7 +85,6 @@
       "Difficulty": "Einfach"
     },
     {
-      "Id": "8",
       "FishLatin": "Myxocyprinus asiaticus",
       "FishGerman": "Chinesischer Sauger",
       "Characteristics": "60 cm",

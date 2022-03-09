@@ -1,5 +1,7 @@
+import styled from 'styled-components';
 import { useState, useEffect } from 'react';
 import FishListPage from './pages/FishListPage.js';
+import Header from './components/Header.js';
 
 function App() {
   const [fishes, setFishes] = useState([]);
@@ -9,9 +11,10 @@ function App() {
   }, []);
 
   return (
-    <div>
+    <PageContainer>
+      <Header />
       <FishListPage fishes={fishes} />
-    </div>
+    </PageContainer>
   );
 
   async function getFishes() {
@@ -26,3 +29,9 @@ function App() {
 }
 
 export default App;
+
+const PageContainer = styled.div`
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  height: 100vh;
+`;
