@@ -1,8 +1,9 @@
 import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import FishCard from './FishCard';
 
 describe('FishCard', () => {
-  it('render a div with heading and list of fish', () => {
+  it('render a div with heading, list, and button  to show more information of a fish', () => {
     render(
       <FishCard
         fish={{
@@ -23,7 +24,16 @@ describe('FishCard', () => {
     const fishName = screen.getByRole('heading', { level: 2 });
     expect(fishName).toHaveTextContent('Siamesischer Kampffisch');
 
+    const button = screen.getByRole('button', { name: /Weitere/i });
+    expect(button).toBeInTheDocument();
+
+    userEvent.click(button);
+
     const characteristics = screen.getByRole('list');
     expect(characteristics).toBeInTheDocument();
+
+    userEvent.click(button);
+
+    expect(characteristics).not.toBeInTheDocument();
   });
 });
