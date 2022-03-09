@@ -41,6 +41,7 @@ const FishContainer = styled.div`
   border: 2px solid #28382c;
   border-radius: 2px;
   opacity: 0.95;
+  margin: 20px;
 `;
 
 const FishName = styled.h2`
@@ -48,6 +49,7 @@ const FishName = styled.h2`
   font-family: Arial, Helvetica, sans-serif;
   color: #28382c;
   opacity: 0.9;
+  padding: 10px;
 `;
 
 const PropertyList = styled.ul`
@@ -56,4 +58,5 @@ const PropertyList = styled.ul`
   font-size: 0.9rem;
   color: #28382c;
   opacity: 0.8;
+  margin: 20px;
 `;
