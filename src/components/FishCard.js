@@ -7,9 +7,9 @@ export default function FishCard({ fish }) {
     <FishContainer>
       <FishName>{fish.FishGerman}</FishName>
       <FishNameLatin>
-        <li>
+        <div>
           <strong>{fish.FishLatin} </strong>
-        </li>
+        </div>
       </FishNameLatin>
       <ShowDetailsButton type="button" onClick={toggleProperties}>
         Weitere Details
@@ -65,7 +65,7 @@ const FishName = styled.h2`
   padding: 10px;
 `;
 
-const FishNameLatin = styled.li`
+const FishNameLatin = styled.div`
   list-style: none;
   font-family: Arial, Helvetica, sans-serif;
   color: #28382c;
