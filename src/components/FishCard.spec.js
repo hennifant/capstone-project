@@ -24,6 +24,9 @@ describe('FishCard', () => {
     const fishName = screen.getByRole('heading', { level: 2 });
     expect(fishName).toHaveTextContent('Siamesischer Kampffisch');
 
+    const image = screen.getByRole('img');
+    expect(image).toBeInTheDocument();
+
     const button = screen.getByRole('button', { name: /Weitere/i });
     expect(button).toBeInTheDocument();
 
