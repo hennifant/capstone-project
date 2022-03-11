@@ -6,11 +6,17 @@ export default function FishCard({ fish }) {
   return (
     <FishContainer>
       <FishName>{fish.FishGerman}</FishName>
-      <FishNameLatin>
-        <div>
+      <ContainerFishProperties>
+        <FishNameLatin>
           <strong>{fish.FishLatin} </strong>
-        </div>
-      </FishNameLatin>
+        </FishNameLatin>
+        <FishImage
+          src={fish.Image}
+          alt={fish.FishName}
+          width={80}
+          height={80}
+        ></FishImage>
+      </ContainerFishProperties>
       <ShowDetailsButton type="button" onClick={toggleProperties}>
         Weitere Details
       </ShowDetailsButton>
@@ -65,14 +71,29 @@ const FishName = styled.h2`
   padding: 10px;
 `;
 
-const FishNameLatin = styled.div`
-  list-style: none;
+const ContainerFishProperties = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-content: space-evenly;
   font-family: Arial, Helvetica, sans-serif;
   color: #28382c;
-  margin-top: 0.1em;
-  margin-left: 34px;
-  margin-bottom: 10px;
+  margin: 0.1em 20px 10px 34px;
   opacity: 0.9;
+`;
+
+const FishNameLatin = styled.div`
+  box-sizing: border-box;
+  justify-self: start;
+  padding: 2px;
+`;
+
+const FishImage = styled.img`
+  box-sizing: border-box;
+  justify-self: end;
+
+  border-radius: 50px;
+  border: 2px solid #28382c;
+  padding: 2px; ;
 `;
 
 const PropertyList = styled.ul`

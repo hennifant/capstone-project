@@ -21,5 +21,7 @@ Default.args = {
     strTemperature: '24 - 30 Grad',
     strPh: '6,0 - 7,5',
     strDifficulty: 'Einfach',
+    Image:
+      'https://www.aquarium-guide.de/siamesischer_kampffisch_halfmoon2.gif',
   },
 };

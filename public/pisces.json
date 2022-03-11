@@ -10,7 +10,8 @@
       "Age": "3 Jahre",
       "Temperature": "24-30 Grad",
       "Ph": "6,0 - 7,5",
-      "Difficulty": "Einfach"
+      "Difficulty": "Einfach",
+      "Image": "https://www.aquarium-guide.de/siamesischer_kampffisch_halfmoon2.gif"
     },
     {
       "FishLatin": "Corydoras panda",
@@ -22,7 +23,8 @@
       "Age": "9 Jahre",
       "Temperature": "22-26 Grad",
       "Ph": "6,0 - 7,5",
-      "Difficulty": "Normal"
+      "Difficulty": "Normal",
+      "Image": "https://www.aquarium-guide.de/panda-panzerwels2.gif"
     },
     {
       "FishLatin": "Astatoreochromis alluaudi",
@@ -34,7 +36,8 @@
       "Age": "-- Jahre",
       "Temperature": "24-28 Grad",
       "Ph": "7,5 - 8,5",
-      "Difficulty": "Normal"
+      "Difficulty": "Normal",
+      "Image": "https://www.aquarium-guide.de/schneckenfresser2.gif"
     },
     {
       "FishLatin": "Corydoras adolfoi",
@@ -46,7 +49,8 @@
       "Age": "9 Jahre",
       "Temperature": "23-27 Grad",
       "Ph": "5,5 - 7,5",
-      "Difficulty": "Normal"
+      "Difficulty": "Normal",
+      "Image": "https://www.aquarium-guide.de/adolfos_panzerwels2.gif"
     },
     {
       "FishLatin": "Sciaenochromis ahli",
@@ -58,7 +62,8 @@
       "Age": "12 Jahre",
       "Temperature": "24-26 Grad",
       "Ph": "7,5 - 8,5",
-      "Difficulty": "Einfach"
+      "Difficulty": "Einfach",
+      "Image": "https://www.aquarium-guide.de/ahls_maulbrueter2.gif"
     },
     {
       "FishLatin": "Macrognathus aculeatus",
@@ -70,7 +75,8 @@
       "Age": "--",
       "Temperature": "23 - 28 Grad",
       "Ph": "6,7 - 7,5",
-      "Difficulty": "Schwierig"
+      "Difficulty": "Schwierig",
+      "Image": "https://www.aquarium-guide.de/augenfleckstachelaal2.gif"
     },
     {
       "FishLatin": "Poecilia sphenops var. Dalmatiner",
@@ -82,7 +88,8 @@
       "Age": "5 Jahre",
       "Temperature": "24 - 28 Grad",
       "Ph": "7,2 - 8,2",
-      "Difficulty": "Einfach"
+      "Difficulty": "Einfach",
+      "Image": "https://www.aquarium-guide.de/dalmatiner-molly2.gif"
     },
     {
       "FishLatin": "Myxocyprinus asiaticus",
@@ -94,7 +101,21 @@
       "Age": "--",
       "Temperature": "15 - 27 Grad",
       "Ph": "6,5 - 7,5",
-      "Difficulty": "Speziell"
+      "Difficulty": "Speziell",
+      "Image": "https://www.aquarium-guide.de/chinesischer_sauger2.gif"
+    },
+    {
+      "FishLatin": "Melanotaenia maccullochi",
+      "FishGerman": "Zwergregenbogenfisch",
+      "Characteristics": "7 cm",
+      "Food": "Frostfutter, Flockenfutter, Pelletfutter",
+      "Husbandry": "Gruppenhaltung",
+      "Tanksize": "120 Liter",
+      "Age": "8 Jahre",
+      "Temperature": "20 - 26 Grad",
+      "Ph": "7,0 - 8,0",
+      "Difficulty": "Einfach",
+      "Image": "https://www.aquarium-guide.de/zwergregenbogenfisch2.gif"
     }
   ]
 }
