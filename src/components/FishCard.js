@@ -74,15 +74,11 @@ const FishName = styled.h2`
 const ContainerFishProperties = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
-
   align-content: space-evenly;
   font-family: Arial, Helvetica, sans-serif;
   color: #28382c;
-  margin-top: 0.1em;
-  margin-left: 34px;
-  margin-bottom: 10px;
+  margin: 0.1em 20px 10px 34px;
   opacity: 0.9;
-  margin-right: 20px;
 `;
 
 const FishNameLatin = styled.div`
@@ -94,8 +90,7 @@ const FishNameLatin = styled.div`
 const FishImage = styled.img`
   box-sizing: border-box;
   justify-self: end;
-  width: 80px;
-  height: 80px;
+
   border-radius: 50px;
   border: 2px solid #28382c;
   padding: 2px; ;
