@@ -98,7 +98,6 @@ const FishNameLatin = styled.div`
 const FishImage = styled.img`
   box-sizing: border-box;
   justify-self: end;
-
   border-radius: 50px;
   border: 2px solid #28382c;
   padding: 2px; ;
