@@ -18,10 +18,12 @@ export default function FishCard({ fish }) {
         ></FishImage>
       </ContainerFishProperties>
       <ShowDetailsButton type="button" onClick={toggleProperties}>
-        Weitere Details
+        {showDetails
+          ? 'Eigenschaften ausblenden...'
+          : 'Eigenschaften anzeigen...'}
       </ShowDetailsButton>
       {showDetails && (
-        <PropertyList>
+        <PropertyList role="list">
           <li>
             <strong>Größe: {fish.Characteristics} </strong>
           </li>
@@ -46,6 +48,9 @@ export default function FishCard({ fish }) {
           <li>
             <strong>Schwierigkeit: {fish.Difficulty} </strong>
           </li>
+          <li>
+            <strong>Region: {fish.Region} </strong>
+          </li>
         </PropertyList>
       )}
     </FishContainer>
@@ -61,11 +66,14 @@ const FishContainer = styled.div`
   border-radius: 2px;
   opacity: 0.95;
   margin: 20px;
+  height: auto;
+  box-shadow: 0px 0.05px 5px 2px #28382c;
 `;
 
 const FishName = styled.h2`
   margin-left: 24px;
   font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.2rem;
   color: #28382c;
   opacity: 0.9;
   padding: 10px;
@@ -125,13 +133,13 @@ const ShowDetailsButton = styled.button`
   border-radius: 2px;
   display: block;
   width: 85%;
-  font-size: 0.9rem;
+  font-size: 0.8rem bold;
   font-family: Arial, Helvetica, sans-serif;
 
   &:hover {
     color: whitesmoke;
     text-decoration: none;
     text-shadow: 0 0 2px #28382c;
-    font-size: 1rem;
+    font-size: 0.9rem;
   }
 `;

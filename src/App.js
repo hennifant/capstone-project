@@ -5,6 +5,7 @@ import Header from './components/Header.js';
 
 function App() {
   const [fishes, setFishes] = useState([]);
+  const [searchFish, setSearchFish] = useState('');
 
   useEffect(() => {
     getFishes();
@@ -13,7 +14,11 @@ function App() {
   return (
     <PageContainer>
       <Header />
-      <FishListPage fishes={fishes} />
+      <FishListPage
+        fishes={fishes}
+        handleChange={handleChange}
+        searchFish={searchFish}
+      />
     </PageContainer>
   );
 
@@ -26,12 +31,16 @@ function App() {
       console.error('ERROR:', error);
     }
   }
+
+  function handleChange(event) {
+    setSearchFish(event.target.value.trim().toLowerCase());
+  }
 }
 
 export default App;
 
 const PageContainer = styled.div`
   display: grid;
-  grid-template-rows: auto 1fr auto;
+  grid-template-rows: 40px 1fr auto;
   height: 100vh;
 `;
