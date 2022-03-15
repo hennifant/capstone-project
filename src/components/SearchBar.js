@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import fishIcon from '../images/fish_outline.svg';
 
-function Searchbar({ handleChange, searchFish }) {
+function Searchbar({ handleChangeSearch, searchFish }) {
   return (
     <label htmlFor="search-fish">
       <SearchbarContainer>
@@ -13,7 +13,7 @@ function Searchbar({ handleChange, searchFish }) {
             aria-label="searchFishInput"
             name="searchFishInput"
             value={searchFish}
-            onChange={handleChange}
+            onChange={handleChangeSearch}
             type="text"
             placeholder="  Fischname..."
             maxLength={20}

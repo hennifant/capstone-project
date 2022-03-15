@@ -7,12 +7,15 @@ import Header from './components/Header.js';
 import NavigationBar from './components/NavigationBar.js';
 
 function App() {
-  const [fishes, setFishes] = useState([]);
+  const [fetchedFishes, setFetchedFishes] = useState(loadLocalFish('fishes'));
   const [searchFish, setSearchFish] = useState('');
 
   useEffect(() => {
-    getFishes();
-  }, []);
+    savedLocalFish('fishes', fetchedFishes);
+    if (!fetchedFishes) {
+      getFishes();
+    }
+  }, [fetchedFishes]);
 
   return (
     <AppContainer>
@@ -23,15 +26,21 @@ function App() {
             path="/"
             element={
               <FishListPage
-                fishes={fishes}
-                handleChange={handleChange}
+                fishes={fetchedFishes}
                 searchFish={searchFish}
+                handleChangeSearch={handleChangeSearch}
+                toggleBookmark={toggleBookmark}
               />
             }
           />
           <Route
             path="/watchlist"
-            element={<WatchListPage fishes={fishes} />}
+            element={
+              <WatchListPage
+                fishes={fetchedFishes}
+                toggleBookmark={toggleBookmark}
+              />
+            }
           />
         </Routes>
       </PageContainer>
@@ -43,14 +52,38 @@ function App() {
     try {
       const response = await fetch('pisces.json');
       const data = await response.json();
-      setFishes(data.fishes);
+      setFetchedFishes(data.fishes);
     } catch (error) {
       console.error('ERROR:', error);
     }
   }
 
-  function handleChange(event) {
-    setSearchFish(event.target.value.trim().toLowerCase());
+  function toggleBookmark(id) {
+    setFetchedFishes(
+      fetchedFishes.map(fish => {
+        if (fish.FishGerman === id) {
+          return { ...fish, isBookmarked: !fish.isBookmarked };
+        } else {
+          return fish;
+        }
+      })
+    );
+  }
+
+  function handleChangeSearch(event) {
+    setSearchFish(event.target.value.toLowerCase());
+  }
+
+  function savedLocalFish(key, data) {
+    localStorage.setItem(key, JSON.stringify(data));
+  }
+
+  function loadLocalFish(key) {
+    try {
+      return JSON.parse(localStorage.getItem(key));
+    } catch (error) {
+      console.log(error);
+    }
   }
 }
 
