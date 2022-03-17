@@ -9,6 +9,8 @@ import NavigationBar from './components/NavigationBar.js';
 function App() {
   const [fetchedFishes, setFetchedFishes] = useState(loadLocalFish('fishes'));
   const [searchFish, setSearchFish] = useState('');
+  const [newFilter, setNewFilter] = useState('complete');
+  const [newFilterBookmark, setNewFilterBookmark] = useState('complete');
 
   useEffect(() => {
     savedLocalFish('fishes', fetchedFishes);
@@ -29,7 +31,9 @@ function App() {
                 fishes={fetchedFishes}
                 searchFish={searchFish}
                 handleChangeSearch={handleChangeSearch}
+                handleChangeFilter={handleChangeFilter}
                 toggleBookmark={toggleBookmark}
+                newFilter={newFilter}
               />
             }
           />
@@ -39,6 +43,8 @@ function App() {
               <WatchListPage
                 fishes={fetchedFishes}
                 toggleBookmark={toggleBookmark}
+                newFilterBookmark={newFilterBookmark}
+                handleChangeFilterBookmark={handleChangeFilterBookmark}
               />
             }
           />
@@ -72,6 +78,14 @@ function App() {
 
   function handleChangeSearch(event) {
     setSearchFish(event.target.value.toLowerCase());
+  }
+
+  function handleChangeFilter(value) {
+    setNewFilter(value);
+  }
+
+  function handleChangeFilterBookmark(value) {
+    setNewFilterBookmark(value);
   }
 
   function savedLocalFish(key, data) {

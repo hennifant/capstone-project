@@ -1,10 +1,29 @@
-# Getting Started with Create React App
+# AppQuarium
+
+## Capstone Project of the IT bootcamp at neuefische
+
+Tank Buddy is under construction
+
+With the AppQuarium, friends of aquaristics should be able to search for fish, show off their own aquarium and exchange fish.
+
+Currently, a database of fish can be searched and fish can be added to a wish list.
+
+### Deployment
+
+You can have a look at the last update of Tank Buddy on Vercel: [Demo](http://capstone-project-gold-ten.vercel.app/)
+
+### Tech Stack
+
+- React
+- React Router
+- React Testing Library / Jest
+- Storybook
+- styled components
+- Javascript
+- npm
+- Vercel
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
 
 ### `npm start`
 

@@ -1,11 +1,14 @@
 import styled from 'styled-components';
 import FishCard from '../components/FishCard.js';
 import SearchBar from '../components/SearchBar.js';
+import FilterSearch from '../components/FilterSearch.js';
 
 export default function FishListPage({
   fishes,
   searchFish,
+  newFilter,
   handleChangeSearch,
+  handleChangeFilter,
   toggleBookmark,
 }) {
   return (
@@ -14,10 +17,19 @@ export default function FishListPage({
         handleChangeSearch={handleChangeSearch}
         searchFish={searchFish}
       />
+      <FilterSearch
+        handleChangeFilter={handleChangeFilter}
+        newFilter={newFilter}
+      />
       {fishes &&
         fishes
           .filter(fish =>
-            fish.FishGerman.trim().toLowerCase().includes(searchFish)
+            fish.FishGerman.trim().toLowerCase().includes(searchFish.trim())
+          )
+          .filter(
+            fish =>
+              fish.Difficulty.toLowerCase() === newFilter ||
+              newFilter === 'complete'
           )
           .map(fish => (
             <FishCard
@@ -38,11 +50,9 @@ export default function FishListPage({
 
 const FishlistContainer = styled.section`
   display: grid;
-  gap: 10px;
   padding-left: 10px;
   padding-right: 10px;
   margin-bottom: 0;
-  gap: 10px;
   margin-top: 0;
 `;
 

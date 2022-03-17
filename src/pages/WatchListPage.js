@@ -1,12 +1,7 @@
 import styled from 'styled-components';
 import FishCard from '../components/FishCard.js';
 
-export default function FishListPage({
-  fishes,
-  searchFish,
-  handleChange,
-  toggleBookmark,
-}) {
+export default function FishListPage({ fishes, toggleBookmark }) {
   return (
     <FishlistContainer>
       {fishes &&
@@ -21,9 +16,9 @@ export default function FishListPage({
           ))}
       {fishes.filter(fish => fish.isBookmarked === true).length < 1 && (
         <ErrorMessage>
-          Sie haben bisher noch keine Fische zu Ihrer Wunschliste hinzugefügt.
+          Sie haben bisher noch keinen Fisch zu Ihrer Wunschliste hinzugefügt.
           Durch das anklicken des Bookmark-Symbols in der Datenbank können Sie
-          das ändern.
+          dies ändern.
         </ErrorMessage>
       )}
     </FishlistContainer>

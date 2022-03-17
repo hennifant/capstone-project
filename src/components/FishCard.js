@@ -16,7 +16,6 @@ export default function FishCard({ fish, toggleBookmark }) {
             height="36"
             alt="notBookmarked"
             fill="#28382c"
-            class="bi bi-bookmark-check-fill"
             viewBox="0 0 16 16"
             aria-hidden="true"
           >
@@ -29,7 +28,6 @@ export default function FishCard({ fish, toggleBookmark }) {
             height="36"
             alt="isBookmarked"
             fill="#28382c"
-            class="bi bi-bookmark-check"
             viewBox="0 0 16 16"
             aria-hidden="true"
           >
@@ -37,6 +35,7 @@ export default function FishCard({ fish, toggleBookmark }) {
             <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5V2zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1H4z" />
           </svg>
         )}
+        <span className="sr-only">Bookmark</span>
       </BookmarkButton>
       <FishName>{fish.FishGerman}</FishName>
 
@@ -163,18 +162,19 @@ const ShowDetailsButton = styled.button`
   transition: 0.5s;
   background-size: 100% auto;
   color: #28382c;
-  box-shadow: 0 0 2px black;
+  box-shadow: 0 0 8px black;
   border-radius: 2px;
+  outline: none;
   display: block;
   width: 85%;
   font-size: 0.8rem bold;
   font-family: Arial, Helvetica, sans-serif;
 
   &:hover {
-    color: whitesmoke;
+    color: #384c3d;
     text-decoration: none;
-    text-shadow: 0 0 2px #28382c;
-    font-size: 0.9rem;
+    text-shadow: 0 0 1px #28382c;
+    box-shadow: 0 0 12px #28382c;
   }
 `;
 
