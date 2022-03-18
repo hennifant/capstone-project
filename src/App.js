@@ -5,19 +5,19 @@ import FishListPage from './pages/FishListPage.js';
 import WatchListPage from './pages/WatchListPage.js';
 import Header from './components/Header.js';
 import NavigationBar from './components/NavigationBar.js';
+import FishData from './data/FishData.js';
 
 function App() {
-  const [fetchedFishes, setFetchedFishes] = useState(loadLocalFish('fishes'));
+  const [loadFishData, setLoadFishData] = useState(
+    loadFromLocal(FishData) ?? FishData
+  );
   const [searchFish, setSearchFish] = useState('');
   const [newFilter, setNewFilter] = useState('complete');
   const [newFilterBookmark, setNewFilterBookmark] = useState('complete');
 
   useEffect(() => {
-    savedLocalFish('fishes', fetchedFishes);
-    if (!fetchedFishes) {
-      getFishes();
-    }
-  }, [fetchedFishes]);
+    saveToLocal('fishes', loadFishData);
+  }, [loadFishData]);
 
   return (
     <AppContainer>
@@ -28,7 +28,7 @@ function App() {
             path="/"
             element={
               <FishListPage
-                fishes={fetchedFishes}
+                fishes={loadFishData}
                 searchFish={searchFish}
                 handleChangeSearch={handleChangeSearch}
                 handleChangeFilter={handleChangeFilter}
@@ -41,7 +41,7 @@ function App() {
             path="/watchlist"
             element={
               <WatchListPage
-                fishes={fetchedFishes}
+                fishes={loadFishData}
                 toggleBookmark={toggleBookmark}
                 newFilterBookmark={newFilterBookmark}
                 handleChangeFilterBookmark={handleChangeFilterBookmark}
@@ -54,19 +54,9 @@ function App() {
     </AppContainer>
   );
 
-  async function getFishes() {
-    try {
-      const response = await fetch('pisces.json');
-      const data = await response.json();
-      setFetchedFishes(data.fishes);
-    } catch (error) {
-      console.error('ERROR:', error);
-    }
-  }
-
   function toggleBookmark(id) {
-    setFetchedFishes(
-      fetchedFishes.map(fish => {
+    setLoadFishData(
+      loadFishData.map(fish => {
         if (fish.FishGerman === id) {
           return { ...fish, isBookmarked: !fish.isBookmarked };
         } else {
@@ -81,22 +71,22 @@ function App() {
   }
 
   function handleChangeFilter(value) {
-    setNewFilter(value);
+    setNewFilter(value.toLowerCase());
   }
 
   function handleChangeFilterBookmark(value) {
     setNewFilterBookmark(value);
   }
 
-  function savedLocalFish(key, data) {
+  function saveToLocal(key, data) {
     localStorage.setItem(key, JSON.stringify(data));
   }
 
-  function loadLocalFish(key) {
+  function loadFromLocal(key) {
     try {
       return JSON.parse(localStorage.getItem(key));
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   }
 }
