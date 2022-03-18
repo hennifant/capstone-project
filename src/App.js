@@ -1,23 +1,20 @@
-import styled from 'styled-components';
 import { Route, Routes } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
+import styled from 'styled-components';
+
+import FishData from './data/FishData.js';
+import localStorage from './hooks/localStorage.js';
+
 import FishListPage from './pages/FishListPage.js';
 import WatchListPage from './pages/WatchListPage.js';
 import Header from './components/Header.js';
 import NavigationBar from './components/NavigationBar.js';
-import FishData from './data/FishData.js';
 
 function App() {
-  const [loadFishData, setLoadFishData] = useState(
-    loadFromLocal(FishData) ?? FishData
-  );
+  const [loadFishData, setLoadFishData] = localStorage('fish', FishData);
   const [searchFish, setSearchFish] = useState('');
   const [newFilter, setNewFilter] = useState('complete');
   const [newFilterBookmark, setNewFilterBookmark] = useState('complete');
-
-  useEffect(() => {
-    saveToLocal('fishes', loadFishData);
-  }, [loadFishData]);
 
   return (
     <AppContainer>
@@ -76,18 +73,6 @@ function App() {
 
   function handleChangeFilterBookmark(value) {
     setNewFilterBookmark(value);
-  }
-
-  function saveToLocal(key, data) {
-    localStorage.setItem(key, JSON.stringify(data));
-  }
-
-  function loadFromLocal(key) {
-    try {
-      return JSON.parse(localStorage.getItem(key));
-    } catch (error) {
-      console.error(error);
-    }
   }
 }
 
