@@ -14,11 +14,11 @@ describe('Searchbar', () => {
 
   it('calls onCange function when change input value', () => {
     const changeValue = jest.fn();
-    render(<Searchbar handleChange={changeValue} />);
+    render(<Searchbar handleChangeSearch={changeValue} />);
 
     const inputElement = screen.getByLabelText(/Search/i);
 
-    userEvent.type(inputElement, 'A');
+    userEvent.type(inputElement, 'Fish');
 
     expect(changeValue).toHaveBeenCalled();
   });

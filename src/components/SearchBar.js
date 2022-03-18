@@ -3,15 +3,15 @@ import fishIcon from '../images/fish_outline.svg';
 
 function Searchbar({ handleChangeSearch, searchFish }) {
   return (
-    <label htmlFor="search-fish">
+    <label htmlFor="search-fish-input">
       <SearchbarContainer>
         <SearchbarInputContainer>
           <SearchbarIcon>
             <img alt="Search fishicon" src={fishIcon}></img>
           </SearchbarIcon>
           <SearchbarInput
-            aria-label="searchFishInput"
-            name="searchFishInput"
+            aria-label="search-fish-input"
+            name="search-fish-input"
             value={searchFish}
             onChange={handleChangeSearch}
             type="text"
