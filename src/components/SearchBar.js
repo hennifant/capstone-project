@@ -27,11 +27,7 @@ function Searchbar({ handleChangeSearch, searchFish }) {
 export default Searchbar;
 
 const SearchbarContainer = styled.div`
-  border: 2px solid #28382c;
-  overflow: hidden;
-  box-shadow: 0px 0.05px 5px 2px #28382c;
-  margin: 20px;
-  height: 2.6rem;
+  height: 2.4rem;
 `;
 
 const SearchbarInputContainer = styled.div`

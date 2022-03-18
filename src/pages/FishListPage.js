@@ -13,14 +13,16 @@ export default function FishListPage({
 }) {
   return (
     <FishlistContainer>
-      <SearchBar
-        handleChangeSearch={handleChangeSearch}
-        searchFish={searchFish}
-      />
-      <FilterSearch
-        handleChangeFilter={handleChangeFilter}
-        newFilter={newFilter}
-      />
+      <SearchContainer>
+        <SearchBar
+          handleChangeSearch={handleChangeSearch}
+          searchFish={searchFish}
+        />
+        <FilterSearch
+          handleChangeFilter={handleChangeFilter}
+          newFilter={newFilter}
+        />
+      </SearchContainer>
       {fishes &&
         fishes
           .filter(fish =>
@@ -56,6 +58,13 @@ const FishlistContainer = styled.section`
   margin-top: 0;
 `;
 
+const SearchContainer = styled.div`
+  border: 2px solid #28382c;
+  border-radius: 2px;
+  overflow: hidden;
+  box-shadow: 0px 0.05px 5px 2px #28382c;
+  margin: 20px;
+`;
 const ErrorMessage = styled.p`
   text-align: center;
   padding: 10px 10px 10px;

@@ -63,17 +63,12 @@ export default function FilterSearch({ handleChangeFilter, newFilter }) {
   );
 }
 const FilterContainer = styled.form`
-  border: 2px solid #28382c;
-  border-radius: 2px;
-  overflow: hidden;
-  box-shadow: 0px 0.05px 5px 2px #28382c;
-  margin: 20px;
+  padding-bottom: 0.4rem;
 `;
 
 const FilterFieldset = styled.fieldset`
   display: grid;
   grid-template-rows: auto;
-
   border: none;
   padding: 2px 10px;
   background-color: transparent;
