@@ -7,6 +7,6 @@ describe('Header', () => {
 
     const heading = screen.getByRole('heading', { level: 1 });
 
-    expect(heading).toHaveTextContent('Tank Buddy');
+    expect(heading).toHaveTextContent('AppQuarium');
   });
 });

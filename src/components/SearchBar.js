@@ -3,15 +3,15 @@ import fishIcon from '../images/fish_outline.svg';
 
 function Searchbar({ handleChangeSearch, searchFish }) {
   return (
-    <label htmlFor="search-fish">
+    <label htmlFor="search-fish-input">
       <SearchbarContainer>
         <SearchbarInputContainer>
           <SearchbarIcon>
             <img alt="Search fishicon" src={fishIcon}></img>
           </SearchbarIcon>
           <SearchbarInput
-            aria-label="searchFishInput"
-            name="searchFishInput"
+            aria-label="search-fish-input"
+            name="search-fish-input"
             value={searchFish}
             onChange={handleChangeSearch}
             type="text"
@@ -27,11 +27,7 @@ function Searchbar({ handleChangeSearch, searchFish }) {
 export default Searchbar;
 
 const SearchbarContainer = styled.div`
-  border: 2px solid #28382c;
-  overflow: hidden;
-  box-shadow: 0px 0.05px 5px 2px #28382c;
-  margin: 20px;
-  height: 2.6rem;
+  height: 2.4rem;
 `;
 
 const SearchbarInputContainer = styled.div`

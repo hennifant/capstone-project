@@ -17,6 +17,7 @@ describe('FishCard', () => {
           Temperature: '24-30 Grad',
           Ph: '6,0 - 7,5',
           Difficulty: 'Einfach',
+          Region: 'oben, mitte',
         }}
       />
     );
@@ -27,15 +28,20 @@ describe('FishCard', () => {
     const image = screen.getByRole('img');
     expect(image).toBeInTheDocument();
 
-    const button = screen.getByRole('button', { name: /Weitere/i });
-    expect(button).toBeInTheDocument();
+    const bookmarkButton = screen.getByRole('button', { name: /bookmark/i });
+    expect(bookmarkButton).toBeInTheDocument();
 
-    userEvent.click(button);
+    const showDetailsButton = screen.getByRole('button', {
+      name: /Eigenschaften/i,
+    });
+    expect(showDetailsButton).toBeInTheDocument();
+
+    userEvent.click(showDetailsButton);
 
     const characteristics = screen.getByRole('list');
     expect(characteristics).toBeInTheDocument();
 
-    userEvent.click(button);
+    userEvent.click(showDetailsButton);
 
     expect(characteristics).not.toBeInTheDocument();
   });

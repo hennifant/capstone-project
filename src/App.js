@@ -1,21 +1,20 @@
-import styled from 'styled-components';
 import { Route, Routes } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
+import styled from 'styled-components';
+
+import FishData from './data/FishData.js';
+import localStorage from './hooks/localStorage.js';
+
 import FishListPage from './pages/FishListPage.js';
 import WatchListPage from './pages/WatchListPage.js';
 import Header from './components/Header.js';
 import NavigationBar from './components/NavigationBar.js';
 
 function App() {
-  const [fetchedFishes, setFetchedFishes] = useState(loadLocalFish('fishes'));
+  const [loadFishData, setLoadFishData] = localStorage('fish', FishData);
   const [searchFish, setSearchFish] = useState('');
-
-  useEffect(() => {
-    savedLocalFish('fishes', fetchedFishes);
-    if (!fetchedFishes) {
-      getFishes();
-    }
-  }, [fetchedFishes]);
+  const [newFilter, setNewFilter] = useState('complete');
+  const [newFilterBookmark, setNewFilterBookmark] = useState('complete');
 
   return (
     <AppContainer>
@@ -26,10 +25,12 @@ function App() {
             path="/"
             element={
               <FishListPage
-                fishes={fetchedFishes}
+                fishes={loadFishData}
                 searchFish={searchFish}
                 handleChangeSearch={handleChangeSearch}
+                handleChangeFilter={handleChangeFilter}
                 toggleBookmark={toggleBookmark}
+                newFilter={newFilter}
               />
             }
           />
@@ -37,8 +38,10 @@ function App() {
             path="/watchlist"
             element={
               <WatchListPage
-                fishes={fetchedFishes}
+                fishes={loadFishData}
                 toggleBookmark={toggleBookmark}
+                newFilterBookmark={newFilterBookmark}
+                handleChangeFilterBookmark={handleChangeFilterBookmark}
               />
             }
           />
@@ -48,19 +51,9 @@ function App() {
     </AppContainer>
   );
 
-  async function getFishes() {
-    try {
-      const response = await fetch('pisces.json');
-      const data = await response.json();
-      setFetchedFishes(data.fishes);
-    } catch (error) {
-      console.error('ERROR:', error);
-    }
-  }
-
   function toggleBookmark(id) {
-    setFetchedFishes(
-      fetchedFishes.map(fish => {
+    setLoadFishData(
+      loadFishData.map(fish => {
         if (fish.FishGerman === id) {
           return { ...fish, isBookmarked: !fish.isBookmarked };
         } else {
@@ -74,16 +67,12 @@ function App() {
     setSearchFish(event.target.value.toLowerCase());
   }
 
-  function savedLocalFish(key, data) {
-    localStorage.setItem(key, JSON.stringify(data));
+  function handleChangeFilter(value) {
+    setNewFilter(value.toLowerCase());
   }
 
-  function loadLocalFish(key) {
-    try {
-      return JSON.parse(localStorage.getItem(key));
-    } catch (error) {
-      console.log(error);
-    }
+  function handleChangeFilterBookmark(value) {
+    setNewFilterBookmark(value);
   }
 }
 

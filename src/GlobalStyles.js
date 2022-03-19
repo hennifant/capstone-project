@@ -7,8 +7,13 @@ export default createGlobalStyle`
     margin: 0;
  }
 
+ :root {
+   --black:
+ }
+
  body {
    font-family: 'Lucida Console', Courier, monospace;
+   font-size: 1rem;
    background: rgb(99,166,20);
    background: linear-gradient(266deg, rgba(99,166,20,1) 10%, rgba(99,167,20,1) 42%, rgba(0,212,255,1) 100%);
  }

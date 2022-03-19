@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export default function Header() {
-  return <Heading>Tank Buddy</Heading>;
+  return <Heading>AppQuarium</Heading>;
 }
 
 const Heading = styled.h1`

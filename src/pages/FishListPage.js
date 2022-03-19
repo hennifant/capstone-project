@@ -1,23 +1,37 @@
 import styled from 'styled-components';
 import FishCard from '../components/FishCard.js';
 import SearchBar from '../components/SearchBar.js';
+import FilterSearch from '../components/FilterSearch.js';
 
 export default function FishListPage({
   fishes,
   searchFish,
+  newFilter,
   handleChangeSearch,
+  handleChangeFilter,
   toggleBookmark,
 }) {
   return (
     <FishlistContainer>
-      <SearchBar
-        handleChangeSearch={handleChangeSearch}
-        searchFish={searchFish}
-      />
+      <SearchContainer>
+        <SearchBar
+          handleChangeSearch={handleChangeSearch}
+          searchFish={searchFish}
+        />
+        <FilterSearch
+          handleChangeFilter={handleChangeFilter}
+          newFilter={newFilter}
+        />
+      </SearchContainer>
       {fishes &&
         fishes
           .filter(fish =>
-            fish.FishGerman.trim().toLowerCase().includes(searchFish)
+            fish.FishGerman.trim().toLowerCase().includes(searchFish.trim())
+          )
+          .filter(
+            fish =>
+              fish.Difficulty.toLowerCase() === newFilter ||
+              newFilter === 'complete'
           )
           .map(fish => (
             <FishCard
@@ -38,14 +52,19 @@ export default function FishListPage({
 
 const FishlistContainer = styled.section`
   display: grid;
-  gap: 10px;
   padding-left: 10px;
   padding-right: 10px;
   margin-bottom: 0;
-  gap: 10px;
   margin-top: 0;
 `;
 
+const SearchContainer = styled.div`
+  border: 2px solid #28382c;
+  border-radius: 2px;
+  overflow: hidden;
+  box-shadow: 0px 0.05px 5px 2px #28382c;
+  margin: 20px;
+`;
 const ErrorMessage = styled.p`
   text-align: center;
   padding: 10px 10px 10px;
