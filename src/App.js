@@ -5,8 +5,11 @@ import styled from 'styled-components';
 import FishData from './data/FishData.js';
 import localStorage from './hooks/localStorage.js';
 
+import TankPage from './pages/TankPage.js';
 import FishListPage from './pages/FishListPage.js';
 import WatchListPage from './pages/WatchListPage.js';
+import AddTankPage from './pages/AddTankPage.js';
+
 import Header from './components/Header.js';
 import NavigationBar from './components/NavigationBar.js';
 
@@ -15,6 +18,7 @@ function App() {
   const [searchFish, setSearchFish] = useState('');
   const [newFilter, setNewFilter] = useState('complete');
   const [newFilterBookmark, setNewFilterBookmark] = useState('complete');
+  const [newTank, setNewTank] = useState([]);
 
   return (
     <AppContainer>
@@ -45,6 +49,20 @@ function App() {
               />
             }
           />
+          <Route
+            path="/tank"
+            element={
+              <TankPage
+                newTank={newTank}
+                deleteTank={deleteTank}
+                setNewTank={setNewTank}
+              />
+            }
+          />
+          <Route
+            path="/createTank"
+            element={<AddTankPage newTank={newTank} setNewTank={setNewTank} />}
+          />
         </Routes>
       </PageContainer>
       <NavigationBar />
@@ -73,6 +91,10 @@ function App() {
 
   function handleChangeFilterBookmark(value) {
     setNewFilterBookmark(value);
+  }
+
+  function deleteTank(id) {
+    setNewTank(newTank.filter(note => note.id !== id));
   }
 }
 

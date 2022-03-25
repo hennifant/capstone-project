@@ -6,13 +6,14 @@ export default function NavigationBar() {
     <Navigation>
       <NavigationLink to="/">Datenbank</NavigationLink>
       <NavigationLink to="/watchlist">Wunschliste</NavigationLink>
+      <NavigationLink to="/tank">Aquarium</NavigationLink>
     </Navigation>
   );
 }
 
 const Navigation = styled.nav`
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
   place-items: center;
   padding: 0.2rem;
   background-color: #28382c;
