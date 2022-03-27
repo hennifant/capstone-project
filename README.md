@@ -2,7 +2,7 @@
 
 ## Capstone Project of the IT bootcamp at neuefische
 
-Tank Buddy is under construction
+AppQuarium is under construction
 
 With the AppQuarium, friends of aquaristics should be able to search for fish, show off their own aquarium and exchange fish.
 
@@ -16,6 +16,7 @@ You can have a look at the last update of Tank Buddy on Vercel: [Demo](http://ca
 
 - React
 - React Router
+- nanoid
 - React Testing Library / Jest
 - Storybook
 - styled components
