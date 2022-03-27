@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { nanoid } from 'nanoid';
 import { useNavigate } from 'react-router-dom';
 
@@ -17,17 +17,13 @@ export default function CreateTankForm({ newTank, setNewTank }) {
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  useEffect(() => {
-    setInputData({ ...inputData });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
   const handleFormSubmit = event => {
     event.preventDefault();
     setNewTank([inputData, ...newTank]);
     setInputData({ title: '', text: '', fish: '' });
-    navigate('./');
+
     showSubmitMessage();
+    navigate(-1);
   };
 
   const showSubmitMessage = () => {
@@ -37,7 +33,7 @@ export default function CreateTankForm({ newTank, setNewTank }) {
 
   return (
     <ContainerForm>
-      <StyledForm onSubmit={handleFormSubmit}>
+      <StyledForm aria-labelledby="tank properties" onSubmit={handleFormSubmit}>
         <ImageUpload
           inputData={inputData}
           setInputData={inputData}
@@ -54,8 +50,8 @@ export default function CreateTankForm({ newTank, setNewTank }) {
           name="title"
           maxLength="60"
           required
-          placeholder="Auqarienname"
-        ></FormInput>
+          placeholder="Aquarienname"
+        />
         <textarea
           onChange={event =>
             setInputData({ ...inputData, text: event.target.value })
@@ -74,8 +70,8 @@ export default function CreateTankForm({ newTank, setNewTank }) {
             setInputData({ ...inputData, fish: event.target.value })
           }
           value={inputData.fish}
-          aria-label="text"
-          name="text"
+          aria-label="fish"
+          name="fish"
           rows="4"
           cols="24"
           maxLength="280"

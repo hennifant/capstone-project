@@ -16,7 +16,6 @@ const TankContainer = styled.section`
   display: grid;
   gap: 0.5rem;
   scrollbar-width: none;
-  margin-bottom: 0;
   border: 2px solid #28382c;
   border-radius: 2px;
   opacity: 0.95;

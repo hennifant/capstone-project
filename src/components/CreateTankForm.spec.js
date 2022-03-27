@@ -45,12 +45,13 @@ describe('Form', () => {
     );
     const titleInput = screen.getByLabelText('title');
 
-    const textInput = screen.getByRole('textbox', { name: /text/i });
+    const textInput = screen.getByLabelText('text');
 
     const submitButton = screen.getByRole('button', { name: /speichern/i });
 
     userEvent.type(titleInput, 'title');
     userEvent.type(textInput, 'text');
+
     userEvent.click(submitButton);
 
     const submitMessage = screen.getByText('Das Aquarium wird befüllt');

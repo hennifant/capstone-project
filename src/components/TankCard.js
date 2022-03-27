@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export default function Card({ deleteTank, title, text, fish, img }) {
   return (
     <CardContainer>
-      <h1>{title}</h1>
+      <h2>{title}</h2>
       <ImageContainer>
         <ImageTank alt="Image of my Tank" src={img} width="90%" />
       </ImageContainer>
@@ -30,7 +30,7 @@ const CardContainer = styled.section`
   color: #28382c;
   font-family: Arial, Helvetica, sans-serif;
   gap: 0.75rem;
-  h1 {
+  h3 {
     padding-bottom: 0.25rem;
     font-size: 1rem;
     border: 1px solid #28382c;

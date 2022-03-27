@@ -14,9 +14,9 @@ export default function TankPage({ newTank, setNewTank, deleteTank }) {
         Aquarium hinzufügen
       </TankAddButton>
 
-      {newTank.map((tank, index) => (
+      {newTank.map(tank => (
         <TankCard
-          key={index}
+          key={tank.id}
           title={tank.title}
           img={tank.img}
           text={tank.text}
@@ -56,7 +56,6 @@ const TankHeader = styled.h2`
 `;
 
 const TankAddButton = styled.button`
-  background: rgb(99, 166, 20);
   background: linear-gradient(
     266deg,
     rgba(99, 166, 20, 1) 10%,
@@ -72,7 +71,6 @@ const TankAddButton = styled.button`
   color: #28382c;
   box-shadow: 0 0 8px black;
   border-radius: 2px;
-  outline: none;
   display: block;
   width: 85%;
   font-size: 0.8rem bold;
@@ -88,8 +86,8 @@ const TankAddButton = styled.button`
 
 const ErrorMessage = styled.p`
   text-align: center;
-  padding: 10px 10px 10px;
-  margin: 10px 10px 10px;
+  padding: 10px;
+  margin: 10px;
   border: 1px solid #28382c;
   box-shadow: 0px 0.05px 5px 2px #28382c;
   font-family: Arial, Helvetica, sans-serif;
