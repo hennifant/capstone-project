@@ -88,12 +88,41 @@ const CreateTankButton = styled(Button)`
   font-family: Arial, Helvetica, sans-serif;
   border-radius: 2px;
   padding: 0.5rem;
-
   text-align: center;
   padding: 10px;
   margin: 10px;
   border: 1px solid #28382c;
-  box-shadow: 0px 0.05px 5px 2px #28382c;
+
+  &:hover {
+    transform: perspective(500px) rotateX(15deg);
+  }
+
+  &:active {
+    box-shadow: 1px 2px #666;
+  }
 `;
 
 export { CreateTankButton };
+
+const DetailButton = styled(Button)`
+  background: #28382c;
+  color: #dfbe6f;
+  font-size: 0.9rem;
+  font-family: Arial, Helvetica, sans-serif;
+  border-radius: 2px;
+  padding: 0.5rem;
+  text-align: center;
+  padding: 10px;
+  margin: 10px;
+  border: 1px solid #28382c;
+
+  &:hover {
+    transform: perspective(500px) rotateX(15deg);
+  }
+
+  &:active {
+    box-shadow: 1px 2px #666;
+  }
+`;
+
+export { DetailButton };

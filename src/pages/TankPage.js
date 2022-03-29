@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 import { useNavigate } from 'react-router-dom';
+import { CreateTankButton } from '../components/Button.js';
 
 import TankCard from '../components/TankCard.js';
 import Header from '../components/Header.js';
@@ -14,9 +15,9 @@ export default function TankPage({ newTank, deleteTank }) {
       <Header>Mein Aquarium</Header>
       <TankContainer>
         <TankHeader>Mein Aquarium</TankHeader>
-        <TankAddButton onClick={() => navigate('/createTank')}>
+        <CreateTankButton onClick={() => navigate('/createTank')}>
           Aquarium hinzufügen
-        </TankAddButton>
+        </CreateTankButton>
 
         {newTank.map(tank => (
           <TankCard
@@ -63,35 +64,6 @@ const TankHeader = styled.h2`
   font-size: 1.2rem;
   text-align: center;
   color: #28382c;
-`;
-
-const TankAddButton = styled.button`
-  background: linear-gradient(
-    266deg,
-    rgba(99, 166, 20, 1) 10%,
-    rgba(99, 167, 20, 1) 42%,
-    rgba(0, 212, 255, 1) 100%
-  );
-  margin-left: 34px;
-  margin-bottom: 10px;
-  padding: 10px 40px;
-  text-align: center;
-  transition: 0.5s;
-  background-size: 100% auto;
-  color: #28382c;
-  box-shadow: 0 0 8px black;
-  border-radius: 2px;
-  display: block;
-  width: 85%;
-  font-size: 0.8rem bold;
-  font-family: Arial, Helvetica, sans-serif;
-
-  &:hover {
-    color: #384c3d;
-    text-decoration: none;
-    text-shadow: 0 0 1px #28382c;
-    box-shadow: 0 0 12px #28382c;
-  }
 `;
 
 const ErrorMessage = styled.p`

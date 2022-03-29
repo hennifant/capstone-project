@@ -44,7 +44,7 @@ const CardList = styled.ul`
   font-size: 0.9rem;
   color: #28382c;
   opacity: 0.8;
-  margin-left: 34px;
+
   margin-bottom: 10px;
 `;
 

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import styled from 'styled-components';
-import { SubmitButton } from '../components/Button.js';
+import { DetailButton } from '../components/Button.js';
 
 export default function FishCard({ fish }) {
   const [showDetails, setShowDetails] = useState(false);
@@ -20,11 +20,11 @@ export default function FishCard({ fish }) {
           height={80}
         ></FishImage>
       </ContainerFishProperties>
-      <SubmitButton type="button" onClick={toggleProperties}>
+      <DetailButton type="button" onClick={toggleProperties}>
         {showDetails
           ? 'Eigenschaften ausblenden...'
           : 'Eigenschaften anzeigen...'}
-      </SubmitButton>
+      </DetailButton>
       {showDetails && (
         <PropertyList role="list">
           <li>
