@@ -148,35 +148,6 @@ const PropertyList = styled.ul`
   margin-bottom: 10px;
 `;
 
-const ShowDetailsButton = styled.button`
-  background: #28382c;
-  color: #dfbe6f;
-
-  border: none;
-  border-radius: 2px;
-  padding: 0.4rem 1rem;
-  align-self: center;
-  margin-bottom: 10px;
-  margin-left: 34px;
-
-  text-align: center;
-  transition: 0.5s;
-
-  box-shadow: 0 0 8px black;
-  border-radius: 2px;
-
-  width: 50%;
-  font-size: 0.8rem bold;
-  font-family: Arial, Helvetica, sans-serif;
-
-  &:hover {
-    color: #384c3d;
-    text-decoration: none;
-    text-shadow: 0 0 1px #28382c;
-    box-shadow: 0 0 12px #28382c;
-  }
-`;
-
 const BookmarkButton = styled.button`
   border-style: none;
   background: transparent;

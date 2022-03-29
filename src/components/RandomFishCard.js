@@ -115,34 +115,3 @@ const PropertyList = styled.ul`
   margin-left: 34px;
   margin-bottom: 10px;
 `;
-
-const ShowDetailsButton = styled.button`
-  background: rgb(99, 166, 20);
-  background: linear-gradient(
-    266deg,
-    rgba(99, 166, 20, 1) 10%,
-    rgba(99, 167, 20, 1) 42%,
-    rgba(0, 212, 255, 1) 100%
-  );
-  margin-left: 34px;
-  margin-bottom: 10px;
-  padding: 10px 40px;
-  text-align: center;
-  transition: 0.5s;
-  background-size: 100% auto;
-  color: #28382c;
-  box-shadow: 0 0 8px black;
-  border-radius: 2px;
-  outline: none;
-  display: block;
-  width: 85%;
-  font-size: 0.8rem bold;
-  font-family: Arial, Helvetica, sans-serif;
-
-  &:hover {
-    color: #384c3d;
-    text-decoration: none;
-    text-shadow: 0 0 1px #28382c;
-    box-shadow: 0 0 12px #28382c;
-  }
-`;
