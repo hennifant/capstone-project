@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import axios from 'axios';
+import styled from 'styled-components';
 
 const CLOUDNAME = process.env.REACT_APP_CLOUDINARY_CLOUDNAME;
 const PRESET = process.env.REACT_APP_CLOUDINARY_PRESET;
@@ -30,12 +31,20 @@ export default function ImageUpload({ inputData }) {
   }
 
   return (
-    <div>
+    <ImageContainer>
       {image ? (
         <img src={image} alt="" style={{ width: '100%' }} />
       ) : (
         <input type="file" name="file" onChange={upload} />
       )}
-    </div>
+    </ImageContainer>
   );
 }
+
+const ImageContainer = styled.div`
+  position: relative;
+  img {
+    border-radius: 2px;
+    padding: 10px;
+  }
+`;

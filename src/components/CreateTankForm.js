@@ -5,11 +5,12 @@ import { nanoid } from 'nanoid';
 import { useNavigate } from 'react-router-dom';
 
 import ImageUpload from './ImageUpload.js';
+import localStorage from '../hooks/localStorage.js';
 
 export default function CreateTankForm({ newTank, setNewTank }) {
   const navigate = useNavigate();
-  const [tankImage, setTankImage] = useState('');
-  const [inputData, setInputData] = useState({
+  const [tankImage, setTankImage] = localStorage('imageTank', '');
+  const [inputData, setInputData] = localStorage('tanks', {
     id: nanoid(),
     title: '',
     fish: '',
@@ -40,7 +41,7 @@ export default function CreateTankForm({ newTank, setNewTank }) {
           tankImage={tankImage}
           setTankImage={setTankImage}
         />
-        <FormInput
+        <input
           onChange={event =>
             setInputData({ ...inputData, title: event.target.value })
           }
@@ -79,7 +80,7 @@ export default function CreateTankForm({ newTank, setNewTank }) {
           placeholder="Beschreibung"
         ></textarea>
         <button type="submit">Speichern</button>
-        <button onClick={() => navigate(-1)}>Zurück</button>
+        <button onClick={() => setTimeout(navigate(-1))}>Zurück</button>
 
         {isSubmitted ? (
           <SubmitMessage>Das Aquarium wird befüllt</SubmitMessage>
@@ -132,17 +133,19 @@ const StyledForm = styled.form`
     border-radius: 2px;
     padding: 0.5rem;
   }
+
+  input {
+    resize: none;
+    border: 1px solid #28382c;
+    border-radius: 2px;
+    padding: 0.1rem;
+    color: #28382c;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+  }
 `;
 
-const FormInput = styled.input`
-  resize: none;
-  border: 1px solid #28382c;
-  border-radius: 2px;
-  padding: 0.1rem;
-  color: #28382c;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 1rem;
-`;
+const FormInput = styled.input``;
 
 const SubmitMessage = styled.p`
   font-size: 12px;

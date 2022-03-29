@@ -3,18 +3,21 @@ import { useState } from 'react';
 import styled from 'styled-components';
 
 import FishData from './data/FishData.js';
+import BratesData from './data/BratesData.js';
 import localStorage from './hooks/localStorage.js';
 
 import TankPage from './pages/TankPage.js';
 import FishListPage from './pages/FishListPage.js';
+import BrateListPage from './pages/BrateListPage.js';
 import WatchListPage from './pages/WatchListPage.js';
 import AddTankPage from './pages/AddTankPage.js';
+import WelcomePage from './pages/WelcomePage.js';
 
-import Header from './components/Header.js';
 import NavigationBar from './components/NavigationBar.js';
 
 function App() {
   const [loadFishData, setLoadFishData] = localStorage('fish', FishData);
+  const [loadBrateData, setLoadBrateData] = localStorage('brate', BratesData);
   const [searchFish, setSearchFish] = useState('');
   const [newFilter, setNewFilter] = useState('complete');
   const [newFilterBookmark, setNewFilterBookmark] = useState('complete');
@@ -22,14 +25,30 @@ function App() {
 
   return (
     <AppContainer>
-      <Header />
       <PageContainer>
         <Routes>
+          <Route
+            path="/welcome"
+            element={<WelcomePage fishes={loadFishData} />}
+          />
           <Route
             path="/"
             element={
               <FishListPage
                 fishes={loadFishData}
+                searchFish={searchFish}
+                handleChangeSearch={handleChangeSearch}
+                handleChangeFilter={handleChangeFilter}
+                toggleBookmark={toggleBookmark}
+                newFilter={newFilter}
+              />
+            }
+          />
+          <Route
+            path="/brates"
+            element={
+              <BrateListPage
+                brates={loadBrateData}
                 searchFish={searchFish}
                 handleChangeSearch={handleChangeSearch}
                 handleChangeFilter={handleChangeFilter}
@@ -65,7 +84,6 @@ function App() {
           />
         </Routes>
       </PageContainer>
-      <NavigationBar />
     </AppContainer>
   );
 
@@ -94,18 +112,16 @@ function App() {
   }
 
   function deleteTank(id) {
-    setNewTank(newTank.filter(note => note.id !== id));
+    setNewTank(newTank.filter(tank => tank.id !== id));
   }
 }
 
 export default App;
 
 const AppContainer = styled.div`
-  display: grid;
-  grid-template-rows: 40px 1fr 40px;
   height: 100vh;
 `;
 
 const PageContainer = styled.main`
-  overflow-y: auto;
+  padding-bottom: 50px;
 `;

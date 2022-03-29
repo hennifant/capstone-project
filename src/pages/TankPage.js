@@ -3,37 +3,47 @@ import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
 
 import TankCard from '../components/TankCard.js';
+import Header from '../components/Header.js';
+import NavigationBar from '../components/NavigationBar.js';
 
-export default function TankPage({ newTank, setNewTank, deleteTank }) {
+export default function TankPage({ newTank, deleteTank }) {
   const navigate = useNavigate();
 
   return (
-    <TankContainer>
-      <TankHeader>Mein Aquarium</TankHeader>
-      <TankAddButton onClick={() => navigate('/createTank')}>
-        Aquarium hinzufügen
-      </TankAddButton>
+    <PageContainer>
+      <Header>Mein Aquarium</Header>
+      <TankContainer>
+        <TankHeader>Mein Aquarium</TankHeader>
+        <TankAddButton onClick={() => navigate('/createTank')}>
+          Aquarium hinzufügen
+        </TankAddButton>
 
-      {newTank.map(tank => (
-        <TankCard
-          key={tank.id}
-          title={tank.title}
-          img={tank.img}
-          text={tank.text}
-          fish={tank.fish}
-          deleteTank={() => deleteTank(tank.id)}
-        />
-      ))}
-      {newTank.length === 0 ? (
-        <ErrorMessage>
-          Es wurde noch kein virtuelles Aquarium eingerichtet. Bitte befüllen.
-        </ErrorMessage>
-      ) : (
-        ''
-      )}
-    </TankContainer>
+        {newTank.map(tank => (
+          <TankCard
+            key={tank.id}
+            title={tank.title}
+            img={tank.img}
+            text={tank.text}
+            fish={tank.fish}
+            deleteTank={() => deleteTank(tank.id)}
+          />
+        ))}
+        {newTank.length === 0 ? (
+          <ErrorMessage>
+            Es wurde noch kein virtuelles Aquarium eingerichtet. Bitte befüllen.
+          </ErrorMessage>
+        ) : (
+          ''
+        )}
+      </TankContainer>
+      <NavigationBar />
+    </PageContainer>
   );
 }
+
+const PageContainer = styled.main`
+  display: grid;
+`;
 
 const TankContainer = styled.section`
   display: grid;
