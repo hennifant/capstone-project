@@ -5,12 +5,11 @@ import { nanoid } from 'nanoid';
 import { useNavigate } from 'react-router-dom';
 
 import ImageUpload from './ImageUpload.js';
-import localStorage from '../hooks/localStorage.js';
 
 export default function CreateTankForm({ newTank, setNewTank }) {
   const navigate = useNavigate();
-  const [tankImage, setTankImage] = localStorage('imageTank', '');
-  const [inputData, setInputData] = localStorage('tanks', {
+  const [tankImage, setTankImage] = useState('');
+  const [inputData, setInputData] = useState({
     id: nanoid(),
     title: '',
     fish: '',
@@ -37,7 +36,7 @@ export default function CreateTankForm({ newTank, setNewTank }) {
       <StyledForm aria-labelledby="tank properties" onSubmit={handleFormSubmit}>
         <ImageUpload
           inputData={inputData}
-          setInputData={inputData}
+          setInputData={setInputData}
           tankImage={tankImage}
           setTankImage={setTankImage}
         />
@@ -55,11 +54,11 @@ export default function CreateTankForm({ newTank, setNewTank }) {
         />
         <textarea
           onChange={event =>
-            setInputData({ ...inputData, text: event.target.value })
+            setInputData({ ...inputData, fish: event.target.value })
           }
-          value={inputData.text}
-          aria-label="text"
-          name="text"
+          value={inputData.fish}
+          aria-label="fish"
+          name="fish"
           rows="2"
           cols="24"
           maxLength="140"
@@ -68,11 +67,11 @@ export default function CreateTankForm({ newTank, setNewTank }) {
         ></textarea>
         <textarea
           onChange={event =>
-            setInputData({ ...inputData, fish: event.target.value })
+            setInputData({ ...inputData, text: event.target.value })
           }
-          value={inputData.fish}
-          aria-label="fish"
-          name="fish"
+          value={inputData.text}
+          aria-label="text"
+          name="text"
           rows="4"
           cols="24"
           maxLength="280"
@@ -80,7 +79,7 @@ export default function CreateTankForm({ newTank, setNewTank }) {
           placeholder="Beschreibung"
         ></textarea>
         <button type="submit">Speichern</button>
-        <button onClick={() => setTimeout(navigate(-1))}>Zurück</button>
+        <button onClick={() => navigate(-1)}>Zurück</button>
 
         {isSubmitted ? (
           <SubmitMessage>Das Aquarium wird befüllt</SubmitMessage>

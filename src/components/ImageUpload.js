@@ -32,11 +32,14 @@ export default function ImageUpload({ inputData }) {
 
   return (
     <ImageContainer>
-      {image ? (
-        <img src={image} alt="" style={{ width: '100%' }} />
-      ) : (
-        <input type="file" name="file" onChange={upload} />
-      )}
+      <button>
+        Bild Hochladen
+        {image ? (
+          <img src={image} alt="" width="100" height="40" />
+        ) : (
+          <input type="file" name="tankImage" onChange={upload} />
+        )}
+      </button>
     </ImageContainer>
   );
 }
@@ -45,6 +48,7 @@ const ImageContainer = styled.div`
   position: relative;
   img {
     border-radius: 2px;
-    padding: 10px;
+  }
+  input {
   }
 `;
