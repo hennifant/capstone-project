@@ -144,8 +144,6 @@ const StyledForm = styled.form`
   }
 `;
 
-const FormInput = styled.input``;
-
 const SubmitMessage = styled.p`
   font-size: 12px;
   color: #28382c;

@@ -32,14 +32,14 @@ export default function ImageUpload({ inputData }) {
 
   return (
     <ImageContainer>
-      <button>
-        Bild Hochladen
+      <LabelUpload>
+        Bild hinzufügen
         {image ? (
           <img src={image} alt="" width="100" height="40" />
         ) : (
           <input type="file" name="tankImage" onChange={upload} />
         )}
-      </button>
+      </LabelUpload>
     </ImageContainer>
   );
 }
@@ -50,5 +50,17 @@ const ImageContainer = styled.div`
     border-radius: 2px;
   }
   input {
+    opacity: 0;
+    align-self: left;
   }
+`;
+
+const LabelUpload = styled.button`
+  border: 1px solid #ccc;
+  display: inline-block;
+  text-align: center;
+  width: 100%;
+  height: 80%;
+
+  font-size: 1rem;
 `;

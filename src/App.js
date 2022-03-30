@@ -13,8 +13,6 @@ import WatchListPage from './pages/WatchListPage.js';
 import AddTankPage from './pages/AddTankPage.js';
 import WelcomePage from './pages/WelcomePage.js';
 
-import NavigationBar from './components/NavigationBar.js';
-
 function App() {
   const [loadFishData, setLoadFishData] = localStorage('fish', FishData);
   const [loadBrateData, setLoadBrateData] = localStorage('brate', BratesData);
