@@ -1,32 +1,36 @@
 import { Route, Routes } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
 import FishData from './data/FishData.js';
+import BrateData from './data/InvertebratesData.js';
 import localStorage from './hooks/localStorage.js';
 
+import DatabasePage from './pages/DatabasePage.js';
 import TankPage from './pages/TankPage.js';
 import FishListPage from './pages/FishListPage.js';
+import InvertebratesListPage from './pages/InvertebratesListPage.js';
 import WatchListPage from './pages/WatchListPage.js';
 import AddTankPage from './pages/AddTankPage.js';
-
-import Header from './components/Header.js';
-import NavigationBar from './components/NavigationBar.js';
+import WelcomePage from './pages/WelcomePage.js';
 
 function App() {
   const [loadFishData, setLoadFishData] = localStorage('fish', FishData);
+  const [loadBrateData, setLoadBrateData] = localStorage('brate', BrateData);
   const [searchFish, setSearchFish] = useState('');
   const [newFilter, setNewFilter] = useState('complete');
   const [newFilterBookmark, setNewFilterBookmark] = useState('complete');
   const [newTank, setNewTank] = useState([]);
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  useEffect(() => setLoadBrateData(BrateData), []);
   return (
     <AppContainer>
-      <Header />
       <PageContainer>
         <Routes>
+          <Route path="/" element={<WelcomePage fishes={loadFishData} />} />
           <Route
-            path="/"
+            path="/fishlist"
             element={
               <FishListPage
                 fishes={loadFishData}
@@ -38,6 +42,20 @@ function App() {
               />
             }
           />
+          <Route
+            path="/bratelist"
+            element={
+              <InvertebratesListPage
+                brates={loadBrateData}
+                searchFish={searchFish}
+                handleChangeSearch={handleChangeSearch}
+                handleChangeFilter={handleChangeFilter}
+                toggleBookmark={toggleBookmark}
+                newFilter={newFilter}
+              />
+            }
+          />
+          <Route path="/database" element={<DatabasePage />} />
           <Route
             path="/watchlist"
             element={
@@ -65,7 +83,6 @@ function App() {
           />
         </Routes>
       </PageContainer>
-      <NavigationBar />
     </AppContainer>
   );
 
@@ -76,6 +93,15 @@ function App() {
           return { ...fish, isBookmarked: !fish.isBookmarked };
         } else {
           return fish;
+        }
+      })
+    );
+    setLoadBrateData(
+      loadBrateData.map(brate => {
+        if (brate.BrateGerman === id) {
+          return { ...brate, isBookmarked: !brate.isBookmarked };
+        } else {
+          return brate;
         }
       })
     );
@@ -94,18 +120,16 @@ function App() {
   }
 
   function deleteTank(id) {
-    setNewTank(newTank.filter(note => note.id !== id));
+    setNewTank(newTank.filter(tank => tank.id !== id));
   }
 }
 
 export default App;
 
 const AppContainer = styled.div`
-  display: grid;
-  grid-template-rows: 40px 1fr 40px;
   height: 100vh;
 `;
 
 const PageContainer = styled.main`
-  overflow-y: auto;
+  padding-bottom: 50px;
 `;

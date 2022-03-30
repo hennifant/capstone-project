@@ -2,15 +2,15 @@ import { useState } from 'react';
 import styled from 'styled-components';
 import { DetailButton } from '../components/Button.js';
 
-export default function FishCard({ fish, toggleBookmark }) {
+export default function BrateCard({ brate, toggleBookmark }) {
   const [showDetails, setShowDetails] = useState(false);
   return (
-    <FishContainer>
+    <BrateContainer>
       <BookmarkButton
         type="button"
-        onClick={() => toggleBookmark(fish.FishGerman)}
+        onClick={() => toggleBookmark(brate.BrateGerman)}
       >
-        {fish.isBookmarked ? (
+        {brate.isBookmarked ? (
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="36"
@@ -38,20 +38,20 @@ export default function FishCard({ fish, toggleBookmark }) {
         )}
         <span className="sr-only">Bookmark</span>
       </BookmarkButton>
-      <FishName>{fish.FishGerman}</FishName>
+      <BrateName>{brate.BrateGerman}</BrateName>
 
-      <ContainerFishProperties>
-        <FishNameLatin>
-          <strong>{fish.FishLatin} </strong>
-        </FishNameLatin>
+      <ContainerBrateProperties>
+        <BrateNameLatin>
+          <strong>{brate.BrateLatin} </strong>
+        </BrateNameLatin>
 
-        <FishImage
-          src={fish.Image}
-          alt={fish.FishName}
+        <BrateImage
+          src={brate.Image}
+          alt={brate.BrateName}
           width={80}
           height={80}
-        ></FishImage>
-      </ContainerFishProperties>
+        ></BrateImage>
+      </ContainerBrateProperties>
       <DetailButton type="button" onClick={toggleProperties}>
         {showDetails
           ? 'Eigenschaften ausblenden...'
@@ -60,35 +60,33 @@ export default function FishCard({ fish, toggleBookmark }) {
       {showDetails && (
         <PropertyList role="list">
           <li>
-            <strong>Größe: {fish.Characteristics} </strong>
+            <strong>Größe: {brate.Characteristics} </strong>
           </li>
           <li>
-            <strong>Futter: {fish.Food}</strong>
+            <strong>Futter: {brate.Food}</strong>
           </li>
           <li>
-            <strong>Haltung: {fish.Husbandry} </strong>
+            <strong>Haltung: {brate.Husbandry} </strong>
           </li>
           <li>
-            <strong>Beckengröße: {fish.Tanksize} </strong>
+            <strong>Beckengröße: {brate.Tanksize} </strong>
+          </li>
+
+          <li>
+            <strong>Temperatur: {brate.Temperature} </strong>
           </li>
           <li>
-            <strong>Alter: {fish.Age} </strong>
+            <strong>pH-Wert: {brate.Ph} </strong>
           </li>
           <li>
-            <strong>Temperatur: {fish.Temperature} </strong>
+            <strong>Schwierigkeit: {brate.Difficulty} </strong>
           </li>
           <li>
-            <strong>pH-Wert: {fish.Ph} </strong>
-          </li>
-          <li>
-            <strong>Schwierigkeit: {fish.Difficulty} </strong>
-          </li>
-          <li>
-            <strong>Region: {fish.Region} </strong>
+            <strong>Region: {brate.Region} </strong>
           </li>
         </PropertyList>
       )}
-    </FishContainer>
+    </BrateContainer>
   );
 
   function toggleProperties() {
@@ -96,7 +94,7 @@ export default function FishCard({ fish, toggleBookmark }) {
   }
 }
 
-const FishContainer = styled.div`
+const BrateContainer = styled.div`
   border: 2px solid #28382c;
   border-radius: 2px;
   opacity: 0.95;
@@ -105,7 +103,7 @@ const FishContainer = styled.div`
   box-shadow: 0px 0.05px 5px 2px #28382c;
 `;
 
-const FishName = styled.h2`
+const BrateName = styled.h2`
   margin-left: 24px;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 1.2rem;
@@ -114,7 +112,7 @@ const FishName = styled.h2`
   padding: 10px;
 `;
 
-const ContainerFishProperties = styled.div`
+const ContainerBrateProperties = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-content: space-evenly;
@@ -124,13 +122,13 @@ const ContainerFishProperties = styled.div`
   opacity: 0.9;
 `;
 
-const FishNameLatin = styled.div`
+const BrateNameLatin = styled.div`
   box-sizing: border-box;
   justify-self: start;
   padding: 2px;
 `;
 
-const FishImage = styled.img`
+const BrateImage = styled.img`
   box-sizing: border-box;
   justify-self: end;
   border-radius: 50px;

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import axios from 'axios';
+import styled from 'styled-components';
 
 const CLOUDNAME = process.env.REACT_APP_CLOUDINARY_CLOUDNAME;
 const PRESET = process.env.REACT_APP_CLOUDINARY_PRESET;
@@ -30,12 +31,36 @@ export default function ImageUpload({ inputData }) {
   }
 
   return (
-    <div>
-      {image ? (
-        <img src={image} alt="" style={{ width: '100%' }} />
-      ) : (
-        <input type="file" name="file" onChange={upload} />
-      )}
-    </div>
+    <ImageContainer>
+      <LabelUpload>
+        Bild hinzufügen
+        {image ? (
+          <img src={image} alt="" width="100" height="40" />
+        ) : (
+          <input type="file" name="tankImage" onChange={upload} />
+        )}
+      </LabelUpload>
+    </ImageContainer>
   );
 }
+
+const ImageContainer = styled.div`
+  position: relative;
+  img {
+    border-radius: 2px;
+  }
+  input {
+    opacity: 0;
+    align-self: left;
+  }
+`;
+
+const LabelUpload = styled.button`
+  border: 1px solid #ccc;
+  display: inline-block;
+  text-align: center;
+  width: 100%;
+  height: 80%;
+
+  font-size: 1rem;
+`;

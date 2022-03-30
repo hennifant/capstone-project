@@ -4,7 +4,8 @@ import { NavLink } from 'react-router-dom';
 export default function NavigationBar() {
   return (
     <Navigation>
-      <NavigationLink to="/">Datenbank</NavigationLink>
+      <NavigationLink to="/">Neuigkeiten</NavigationLink>
+      <NavigationLink to="/database">Datenbank</NavigationLink>
       <NavigationLink to="/watchlist">Wunschliste</NavigationLink>
       <NavigationLink to="/tank">Aquarium</NavigationLink>
     </Navigation>
@@ -13,12 +14,16 @@ export default function NavigationBar() {
 
 const Navigation = styled.nav`
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
+  height: 48px;
+  width: 100%;
   place-items: center;
-  padding: 0.2rem;
+  position: fixed;
+  bottom: 0px;
+  padding: 0.1rem;
   background-color: #28382c;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 1.2rem;
+  font-size: 0.9rem;
 `;
 
 const NavigationLink = styled(NavLink)`

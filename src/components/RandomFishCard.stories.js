@@ -1,15 +1,16 @@
-import FishCard from './FishCard';
+import RandomFishCard from './RandomFishCard';
 
 export default {
-  title: 'Component/FishCard',
-  component: FishCard,
+  title: 'Component/RandomFishCard',
+  component: RandomFishCard,
 };
 
-const Schema = args => <FishCard {...args} />;
+const Schema = args => <RandomFishCard {...args} />;
 
 export const Default = Schema.bind({});
 Default.args = {
   fish: {
+    idFish: '1',
     strFishLatin: 'Betta splendens',
     strFishGerman: 'Siamesischer Kampffisch',
     strCharacteristics: '5 - 7 cm',

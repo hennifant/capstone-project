@@ -2,23 +2,23 @@ import styled from 'styled-components';
 
 import Header from '../components/Header.js';
 import NavigationBar from '../components/NavigationBar.js';
-import FishCard from '../components/FishCard.js';
+import BrateCard from '../components/BrateCard.js';
 import SearchBar from '../components/SearchBar.js';
 import FilterSearch from '../components/FilterSearch.js';
 import ScrollToTop from '../components/ScrollToTop.js';
 
-export default function FishListPage({
-  fishes,
-  searchFish,
-  newFilter,
+export default function InverteBratesListPage({
+  brates,
+  toggleBookmark,
   handleChangeSearch,
   handleChangeFilter,
-  toggleBookmark,
+  searchFish,
+  newFilter,
 }) {
   return (
     <PageContainer>
-      <Header>Fisch Datenbank</Header>
-      <FishlistContainer>
+      <Header>Wirbellose Datenbank</Header>
+      <BratelistContainer>
         <SearchContainer>
           <SearchBar
             handleChangeSearch={handleChangeSearch}
@@ -29,33 +29,35 @@ export default function FishListPage({
             newFilter={newFilter}
           />
         </SearchContainer>
-        {fishes &&
-          fishes
-            .filter(fish =>
-              fish.FishGerman.trim().toLowerCase().includes(searchFish.trim())
+
+        {brates &&
+          brates
+            .filter(brate =>
+              brate.BrateGerman.trim().toLowerCase().includes(searchFish.trim())
             )
             .filter(
-              fish =>
-                fish.Difficulty.toLowerCase() === newFilter ||
+              brate =>
+                brate.Difficulty.toLowerCase() === newFilter ||
                 newFilter === 'complete'
             )
-            .map(fish => (
-              <FishCard
-                key={fish.FishGerman}
-                fish={fish}
+
+            .map(brate => (
+              <BrateCard
+                key={brate.BrateGerman}
+                brate={brate}
                 toggleBookmark={toggleBookmark}
               />
             ))}
-        {fishes &&
-          fishes.filter(fish =>
-            fish.FishGerman.trim().toLowerCase().includes(searchFish)
+        {brates &&
+          brates.filter(brate =>
+            brate.BrateGerman.trim().toLowerCase().includes(searchFish)
           ).length < 1 && (
             <ErrorMessage>
               Kein Eintrag in der Datenbank vorhanden.
             </ErrorMessage>
           )}
         <ScrollToTop />
-      </FishlistContainer>
+      </BratelistContainer>
       <NavigationBar />
     </PageContainer>
   );
@@ -65,7 +67,7 @@ const PageContainer = styled.main`
   display: grid;
 `;
 
-const FishlistContainer = styled.section`
+const BratelistContainer = styled.section`
   display: grid;
   padding-left: 10px;
   padding-right: 10px;

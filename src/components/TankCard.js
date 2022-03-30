@@ -5,7 +5,7 @@ export default function Card({ deleteTank, title, text, fish, img }) {
     <CardContainer>
       <h2>{title}</h2>
       <ImageContainer>
-        <ImageTank alt="Image of my Tank" src={img} width="90%" />
+        <ImageTank alt="Image of my Tank" src={img} />
       </ImageContainer>
       <CardList role="list">
         <li>
@@ -44,7 +44,7 @@ const CardList = styled.ul`
   font-size: 0.9rem;
   color: #28382c;
   opacity: 0.8;
-  margin-left: 34px;
+
   margin-bottom: 10px;
 `;
 
@@ -69,7 +69,7 @@ const ImageContainer = styled.div`
 
 const ImageTank = styled.img`
   display: inline;
-  margin-left: 24px;
+
   height: 100%;
-  width: auto;
+  width: 100%;
 `;

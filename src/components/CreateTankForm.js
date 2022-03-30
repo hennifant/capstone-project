@@ -36,11 +36,11 @@ export default function CreateTankForm({ newTank, setNewTank }) {
       <StyledForm aria-labelledby="tank properties" onSubmit={handleFormSubmit}>
         <ImageUpload
           inputData={inputData}
-          setInputData={inputData}
+          setInputData={setInputData}
           tankImage={tankImage}
           setTankImage={setTankImage}
         />
-        <FormInput
+        <input
           onChange={event =>
             setInputData({ ...inputData, title: event.target.value })
           }
@@ -54,11 +54,11 @@ export default function CreateTankForm({ newTank, setNewTank }) {
         />
         <textarea
           onChange={event =>
-            setInputData({ ...inputData, text: event.target.value })
+            setInputData({ ...inputData, fish: event.target.value })
           }
-          value={inputData.text}
-          aria-label="text"
-          name="text"
+          value={inputData.fish}
+          aria-label="fish"
+          name="fish"
           rows="2"
           cols="24"
           maxLength="140"
@@ -67,11 +67,11 @@ export default function CreateTankForm({ newTank, setNewTank }) {
         ></textarea>
         <textarea
           onChange={event =>
-            setInputData({ ...inputData, fish: event.target.value })
+            setInputData({ ...inputData, text: event.target.value })
           }
-          value={inputData.fish}
-          aria-label="fish"
-          name="fish"
+          value={inputData.text}
+          aria-label="text"
+          name="text"
           rows="4"
           cols="24"
           maxLength="280"
@@ -132,16 +132,16 @@ const StyledForm = styled.form`
     border-radius: 2px;
     padding: 0.5rem;
   }
-`;
 
-const FormInput = styled.input`
-  resize: none;
-  border: 1px solid #28382c;
-  border-radius: 2px;
-  padding: 0.1rem;
-  color: #28382c;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 1rem;
+  input {
+    resize: none;
+    border: 1px solid #28382c;
+    border-radius: 2px;
+    padding: 0.1rem;
+    color: #28382c;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+  }
 `;
 
 const SubmitMessage = styled.p`

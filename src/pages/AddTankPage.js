@@ -1,17 +1,27 @@
 import styled from 'styled-components';
 
 import CreateTankForm from '../components/CreateTankForm.js';
+import Header from '../components/Header.js';
+import NavigationBar from '../components/NavigationBar.js';
 
 export default function AddTankPage({ newTank, setNewTank }) {
   return (
-    <TankContainer>
-      <TankHeader>Mein Aquarium</TankHeader>
+    <PageContainer>
+      <Header>Aquarium befüllen</Header>
+      <TankContainer>
+        <Header />
+        <TankHeader>Mein Aquarium</TankHeader>
 
-      <CreateTankForm setNewTank={setNewTank} newTank={newTank} />
-    </TankContainer>
+        <CreateTankForm setNewTank={setNewTank} newTank={newTank} />
+      </TankContainer>
+      <NavigationBar />
+    </PageContainer>
   );
 }
 
+const PageContainer = styled.main`
+  display: grid;
+`;
 const TankContainer = styled.section`
   display: grid;
   gap: 0.5rem;
