@@ -10,7 +10,6 @@ const Schema = args => <FishCard {...args} />;
 export const Default = Schema.bind({});
 Default.args = {
   fish: {
-    idFish: '1',
     strFishLatin: 'Betta splendens',
     strFishGerman: 'Siamesischer Kampffisch',
     strCharacteristics: '5 - 7 cm',

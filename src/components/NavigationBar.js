@@ -4,8 +4,8 @@ import { NavLink } from 'react-router-dom';
 export default function NavigationBar() {
   return (
     <Navigation>
-      <NavigationLink to="/welcome">Neuigkeiten</NavigationLink>
-      <NavigationLink to="/">Datenbank</NavigationLink>
+      <NavigationLink to="/">Neuigkeiten</NavigationLink>
+      <NavigationLink to="/database">Datenbank</NavigationLink>
       <NavigationLink to="/watchlist">Wunschliste</NavigationLink>
       <NavigationLink to="/tank">Aquarium</NavigationLink>
     </Navigation>

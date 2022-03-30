@@ -1,7 +1,17 @@
-const BratesData = [
-  {
-    BratesLatin: 'Atyoida pilipes',
-    BratesGerman: 'Sulawesi Fächergarnele',
+import BrateCard from './BrateCard';
+
+export default {
+  title: 'Component/BrateCard',
+  component: BrateCard,
+};
+
+const Schema = args => <BrateCard {...args} />;
+
+export const Default = Schema.bind({});
+Default.args = {
+  Brate: {
+    BrateLatin: 'Atyoida pilipes',
+    BrateGerman: 'Sulawesi Fächergarnele',
     Characteristics: '5 - 6 cm',
     Food: 'Algen, Kleinstorganismen, Flockenfutter',
     Husbandry: 'Einzelhaltung',
@@ -12,6 +22,4 @@ const BratesData = [
     Image: 'https://www.aquarium-guide.de/sulawesi-faechergarnele2.gif',
     Region: 'mitte',
   },
-];
-
-export default BratesData;
+};

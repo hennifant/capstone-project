@@ -1,36 +1,36 @@
 import { Route, Routes } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
 import FishData from './data/FishData.js';
-import BratesData from './data/BratesData.js';
+import BrateData from './data/InvertebratesData.js';
 import localStorage from './hooks/localStorage.js';
 
+import DatabasePage from './pages/DatabasePage.js';
 import TankPage from './pages/TankPage.js';
 import FishListPage from './pages/FishListPage.js';
-import BrateListPage from './pages/BrateListPage.js';
+import InvertebratesListPage from './pages/InvertebratesListPage.js';
 import WatchListPage from './pages/WatchListPage.js';
 import AddTankPage from './pages/AddTankPage.js';
 import WelcomePage from './pages/WelcomePage.js';
 
 function App() {
   const [loadFishData, setLoadFishData] = localStorage('fish', FishData);
-  const [loadBrateData, setLoadBrateData] = localStorage('brate', BratesData);
+  const [loadBrateData, setLoadBrateData] = localStorage('brate', BrateData);
   const [searchFish, setSearchFish] = useState('');
   const [newFilter, setNewFilter] = useState('complete');
   const [newFilterBookmark, setNewFilterBookmark] = useState('complete');
   const [newTank, setNewTank] = useState([]);
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  useEffect(() => setLoadBrateData(BrateData), []);
   return (
     <AppContainer>
       <PageContainer>
         <Routes>
+          <Route path="/" element={<WelcomePage fishes={loadFishData} />} />
           <Route
-            path="/welcome"
-            element={<WelcomePage fishes={loadFishData} />}
-          />
-          <Route
-            path="/"
+            path="/fishlist"
             element={
               <FishListPage
                 fishes={loadFishData}
@@ -43,9 +43,9 @@ function App() {
             }
           />
           <Route
-            path="/brates"
+            path="/bratelist"
             element={
-              <BrateListPage
+              <InvertebratesListPage
                 brates={loadBrateData}
                 searchFish={searchFish}
                 handleChangeSearch={handleChangeSearch}
@@ -55,6 +55,7 @@ function App() {
               />
             }
           />
+          <Route path="/database" element={<DatabasePage />} />
           <Route
             path="/watchlist"
             element={
@@ -92,6 +93,15 @@ function App() {
           return { ...fish, isBookmarked: !fish.isBookmarked };
         } else {
           return fish;
+        }
+      })
+    );
+    setLoadBrateData(
+      loadBrateData.map(brate => {
+        if (brate.BrateGerman === id) {
+          return { ...brate, isBookmarked: !brate.isBookmarked };
+        } else {
+          return brate;
         }
       })
     );

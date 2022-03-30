@@ -11,7 +11,7 @@ export default function WelcomePage(fish) {
     <PageContainer>
       <Header>AppQuarium</Header>
       <FishlistContainer>
-        <SearchContainer>Willkommen im Appquarium!</SearchContainer>
+        <TextContainer>Willkommen im Appquarium!</TextContainer>
         <FishOfTheDay>Fisch des Tages</FishOfTheDay>
         <FishCard key={fish.FishGerman} fish={randomFish} />
       </FishlistContainer>
@@ -44,7 +44,7 @@ const FishOfTheDay = styled.h2`
   padding: 10px;
 `;
 
-const SearchContainer = styled.div`
+const TextContainer = styled.div`
   border: 2px solid #28382c;
   border-radius: 2px;
   overflow: hidden;
