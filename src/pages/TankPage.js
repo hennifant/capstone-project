@@ -6,6 +6,7 @@ import { CreateTankButton } from '../components/Button.js';
 import TankCard from '../components/TankCard.js';
 import Header from '../components/Header.js';
 import NavigationBar from '../components/NavigationBar.js';
+import ScrollToTop from '../components/ScrollToTop.js';
 
 export default function TankPage({ newTank, deleteTank }) {
   const navigate = useNavigate();
@@ -37,6 +38,7 @@ export default function TankPage({ newTank, deleteTank }) {
           ''
         )}
       </TankContainer>
+      <ScrollToTop />
       <NavigationBar />
     </PageContainer>
   );
