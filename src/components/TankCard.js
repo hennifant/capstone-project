@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { DeleteButton } from './Button.js';
 
 export default function Card({ deleteTank, title, text, fish, img }) {
   return (
@@ -46,15 +47,6 @@ const CardList = styled.ul`
   opacity: 0.8;
 
   margin-bottom: 10px;
-`;
-
-const DeleteButton = styled.button`
-  background: #28382c;
-  color: #dfbe6f;
-  font-size: 1rem;
-  border: none;
-  border-radius: 2px;
-  padding: 0.5rem;
 `;
 
 const ImageContainer = styled.div`

@@ -106,14 +106,15 @@ const FishImage = styled.img`
   border-radius: 50%;
   border: 2px solid #28382c;
   padding: 2px;
-  margin: 30px;
+  margin-bottom: 30px;
 `;
 
 const FishNameLatin = styled.h3`
   grid-area: 2 / 1 / 3 / 2;
   box-sizing: border-box;
   justify-self: center;
-  margin-top: 0.8rem;
+  margin-top: 0.2rem;
+
   font-size: 1rem;
 `;
 
