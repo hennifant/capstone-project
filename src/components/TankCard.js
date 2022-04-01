@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { DeleteButton } from './Button.js';
 
-export default function Card({ deleteTank, title, text, fish, img }) {
+export default function Card({ deleteTank, title, text, fish, plant, img }) {
   return (
     <CardContainer>
       <h2>{title}</h2>
@@ -11,6 +11,9 @@ export default function Card({ deleteTank, title, text, fish, img }) {
       <CardList role="list">
         <li>
           <strong>Fische: {fish} </strong>
+        </li>
+        <li>
+          <strong>Pflanzen: {plant} </strong>
         </li>
         <li>
           <strong>Beschreibung: {text}</strong>
