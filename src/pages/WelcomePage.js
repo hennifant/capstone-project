@@ -4,7 +4,7 @@ import Header from '../components/Header.js';
 import NavigationBar from '../components/NavigationBar.js';
 import FishData from '../data/FishData.js';
 
-export default function WelcomePage(fish) {
+export default function WelcomePage(fish, toggleBookmark) {
   const randomFish = FishData[Math.floor(Math.random() * FishData.length)];
 
   return (
@@ -14,7 +14,11 @@ export default function WelcomePage(fish) {
         <TextContainer>Willkommen im AppQuarium</TextContainer>
         <FishOfTheDay>
           Fisch des Tages
-          <FishCard key={fish.FishGerman} fish={randomFish} />
+          <FishCard
+            key={fish.FishGerman}
+            fish={randomFish}
+            toggleBookmark={toggleBookmark}
+          />
         </FishOfTheDay>
       </FishlistContainer>
       <NavigationBar />
@@ -30,8 +34,8 @@ const FishlistContainer = styled.section`
   display: grid;
   padding-left: 10px;
   padding-right: 10px;
-  margin-bottom: 0;
-  margin-top: 0;
+  margin: 0px 20px 0px 20px;
+
   font-family: Arial, Helvetica, sans-serif;
   color: #28382c;
   text-align: center;
