@@ -53,7 +53,6 @@ const CardList = styled.ul`
 `;
 
 const ImageContainer = styled.div`
-  margin: 0.5rem;
   position: relative;
   overflow: hidden;
   border: 2 solid #28382c;
@@ -63,8 +62,5 @@ const ImageContainer = styled.div`
 `;
 
 const ImageTank = styled.img`
-  display: inline;
-
-  height: 100%;
   width: 100%;
 `;

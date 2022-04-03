@@ -63,7 +63,6 @@ export default function CreateTankForm({ newTank, setNewTank }) {
           rows="2"
           cols="24"
           maxLength="140"
-          required
           placeholder=" Fische"
         ></textarea>
         <textarea

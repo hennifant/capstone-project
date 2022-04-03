@@ -28,15 +28,7 @@ function App() {
     <AppContainer>
       <PageContainer>
         <Routes>
-          <Route
-            path="/"
-            element={
-              <WelcomePage
-                fishes={loadFishData}
-                toggleBookmark={toggleBookmark}
-              />
-            }
-          />
+          <Route path="/" element={<WelcomePage fishes={loadFishData} />} />
           <Route
             path="/fishlist"
             element={
