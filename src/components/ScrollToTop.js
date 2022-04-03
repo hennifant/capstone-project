@@ -38,13 +38,15 @@ const ScrollButton = styled.button`
   right: 12px;
   font-size: 28px;
   background: #28382c;
-  color: white;
+  color: #dfbe6f;
   cursor: pointer;
   border-radius: 2px;
   border: none;
-  box-shadow: 0 2px 8px #ccc;
+  box-shadow: 0 2px 8px #dfbe6f;
 
   &:hover {
-    background: red;
+    background: #dfbe6f;
+    color: #282828;
+    box-shadow: 0 4px 8px #282828;
   }
 `;

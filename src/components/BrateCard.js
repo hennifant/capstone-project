@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import styled from 'styled-components';
-import { DetailButton } from '../components/Button.js';
+import { FishDetailButton } from '../components/Button.js';
 
 export default function BrateCard({ brate, toggleBookmark }) {
   const [showDetails, setShowDetails] = useState(false);
@@ -52,11 +52,11 @@ export default function BrateCard({ brate, toggleBookmark }) {
           height={80}
         ></BrateImage>
       </ContainerBrateProperties>
-      <DetailButton type="button" onClick={toggleProperties}>
+      <FishDetailButton type="button" onClick={toggleProperties}>
         {showDetails
           ? 'Eigenschaften ausblenden...'
           : 'Eigenschaften anzeigen...'}
-      </DetailButton>
+      </FishDetailButton>
       {showDetails && (
         <PropertyList role="list">
           <li>

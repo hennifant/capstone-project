@@ -2,109 +2,66 @@ import styled from 'styled-components';
 
 const Button = styled.button`
   border: none;
-`;
-
-export default Button;
-
-const ShowDetailsButton = styled(Button)`
-  background: rgb(99, 166, 20);
-  background: linear-gradient(
-    266deg,
-    rgba(99, 166, 20, 1) 10%,
-    rgba(99, 167, 20, 1) 42%,
-    rgba(0, 212, 255, 1) 100%
-  );
-  margin-left: 34px;
-  margin-bottom: 10px;
-  padding: 10px 40px;
-  text-align: center;
-  transition: 0.5s;
-  background-size: 100% auto;
-  color: #28382c;
-  box-shadow: 0 0 8px black;
-  border-radius: 2px;
-  outline: none;
-  display: block;
-  width: 85%;
-  font-size: 0.8rem bold;
-  font-family: Arial, Helvetica, sans-serif;
-
   &:hover {
-    color: #384c3d;
-    text-decoration: none;
-    text-shadow: 0 0 1px #28382c;
-    box-shadow: 0 0 12px #28382c;
+    transform: perspective(500px) rotateX(15deg);
+  }
+
+  &:active {
+    box-shadow: 2px 2px 2px #dfbe6f;
   }
 `;
 
-export { ShowDetailsButton };
+export default Button;
 
 const SubmitButton = styled(Button)`
   background: #28382c;
   color: #dfbe6f;
   font-size: 1rem;
-
   border-radius: 2px;
   padding: 0.5rem;
 `;
 
 export { SubmitButton };
 
-const DetailsButton = styled(Button)`
-  background: #28382c;
-  color: #dfbe6f;
-
-  border: none;
-  border-radius: 2px;
-  padding: 0.4rem 1rem;
-  align-self: center;
-  margin-bottom: 10px;
-  margin-left: 34px;
-
-  text-align: center;
-  transition: 0.5s;
-
-  box-shadow: 0 0 8px black;
-  border-radius: 2px;
-
-  width: 50%;
-  font-size: 0.8rem bold;
-  font-family: Arial, Helvetica, sans-serif;
-
-  &:hover {
-    color: #384c3d;
-    text-decoration: none;
-    text-shadow: 0 0 1px #28382c;
-    box-shadow: 0 0 12px #28382c;
-  }
-`;
-
-export { DetailsButton };
-
-const CreateTankButton = styled(Button)`
+const DeleteButton = styled(Button)`
   background: #28382c;
   color: #dfbe6f;
   font-size: 1rem;
-  font-family: Arial, Helvetica, sans-serif;
+  border: none;
   border-radius: 2px;
   padding: 0.5rem;
-  text-align: center;
-  padding: 10px;
-  margin: 10px;
-  border: 1px solid #28382c;
-
   &:hover {
     transform: perspective(500px) rotateX(15deg);
   }
 
   &:active {
-    box-shadow: 1px 2px #666;
+    box-shadow: 2px 2px 2px #ff6347;
+    color: #ff6347;
   }
 `;
 
-export { CreateTankButton };
+export { DeleteButton };
 
-const DetailButton = styled(Button)`
+const FishDetailButton = styled(Button)`
+  background: #28382c;
+  color: #dfbe6f;
+  border: none;
+  border-radius: 2px;
+  padding: 0.6rem 1rem;
+  align-self: center;
+  margin-bottom: 10px;
+  margin-left: 34px;
+  text-align: center;
+  transition: 0.5s;
+  border-radius: 2px;
+  width: 80%;
+  font-size: 0.8rem bold;
+  font-family: Arial, Helvetica, sans-serif;
+`;
+
+export { FishDetailButton };
+
+const CreateTankButton = styled(Button)`
   background: #28382c;
   color: #dfbe6f;
   font-size: 0.9rem;
@@ -115,14 +72,48 @@ const DetailButton = styled(Button)`
   padding: 10px;
   margin: 10px;
   border: 1px solid #28382c;
+`;
 
-  &:hover {
-    transform: perspective(500px) rotateX(15deg);
-  }
+export { CreateTankButton };
 
-  &:active {
-    box-shadow: 1px 2px #666;
-  }
+const DetailButton = styled(Button)`
+  background: #28382c;
+  color: #dfbe6f;
+  font-size: 0.9rem;
+  font-family: Arial, Helvetica, sans-serif;
+  border-radius: 2px;
+  padding: 0.1rem;
+  text-align: center;
+  padding: 10px;
+  margin: 10px;
+  border: 1px solid #28382c;
 `;
 
 export { DetailButton };
+
+const DatabaseButton = styled(Button)`
+  grid-area: button;
+  background: #28382c;
+  color: #dfbe6f;
+  font-size: 0.9rem;
+  font-family: Arial, Helvetica, sans-serif;
+  border-radius: 2px;
+  padding: 0.5rem;
+  text-align: center;
+  padding: 10px;
+  margin: 10px;
+  border: 1px solid #28382c;
+`;
+
+export { DatabaseButton };
+
+const ImageUploadButton = styled(Button)`
+  border: 1px solid #ccc;
+  display: inline-block;
+  text-align: center;
+  width: 100%;
+  height: 80%;
+  font-size: 1rem;
+`;
+
+export { ImageUploadButton };

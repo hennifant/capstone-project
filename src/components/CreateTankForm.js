@@ -5,6 +5,7 @@ import { nanoid } from 'nanoid';
 import { useNavigate } from 'react-router-dom';
 
 import ImageUpload from './ImageUpload.js';
+import { SubmitButton, DeleteButton } from './Button.js';
 
 export default function CreateTankForm({ newTank, setNewTank }) {
   const navigate = useNavigate();
@@ -13,6 +14,7 @@ export default function CreateTankForm({ newTank, setNewTank }) {
     id: nanoid(),
     title: '',
     fish: '',
+    plants: '',
     text: '',
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -20,7 +22,7 @@ export default function CreateTankForm({ newTank, setNewTank }) {
   const handleFormSubmit = event => {
     event.preventDefault();
     setNewTank([inputData, ...newTank]);
-    setInputData({ title: '', text: '', fish: '' });
+    setInputData({ title: '', text: '', fish: '', plants: '' });
 
     showSubmitMessage();
     navigate(-1);
@@ -49,8 +51,7 @@ export default function CreateTankForm({ newTank, setNewTank }) {
           aria-label="title"
           name="title"
           maxLength="60"
-          required
-          placeholder="Aquarienname"
+          placeholder=" Aquarienname"
         />
         <textarea
           onChange={event =>
@@ -62,8 +63,19 @@ export default function CreateTankForm({ newTank, setNewTank }) {
           rows="2"
           cols="24"
           maxLength="140"
-          required
-          placeholder="Fische"
+          placeholder=" Fische"
+        ></textarea>
+        <textarea
+          onChange={event =>
+            setInputData({ ...inputData, plants: event.target.value })
+          }
+          value={inputData.plants}
+          aria-label="plants"
+          name="plants"
+          rows="2"
+          cols="24"
+          maxLength="140"
+          placeholder=" Pflanzen"
         ></textarea>
         <textarea
           onChange={event =>
@@ -75,11 +87,10 @@ export default function CreateTankForm({ newTank, setNewTank }) {
           rows="4"
           cols="24"
           maxLength="280"
-          required
-          placeholder="Beschreibung"
+          placeholder=" Beschreibung"
         ></textarea>
-        <button type="submit">Speichern</button>
-        <button onClick={() => navigate(-1)}>Zurück</button>
+        <SubmitButton type="submit">Speichern</SubmitButton>
+        <DeleteButton onClick={() => navigate(-1)}>Zurück</DeleteButton>
 
         {isSubmitted ? (
           <SubmitMessage>Das Aquarium wird befüllt</SubmitMessage>

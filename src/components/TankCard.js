@@ -1,6 +1,7 @@
 import styled from 'styled-components';
+import { DeleteButton } from './Button.js';
 
-export default function Card({ deleteTank, title, text, fish, img }) {
+export default function Card({ deleteTank, title, text, fish, plant, img }) {
   return (
     <CardContainer>
       <h2>{title}</h2>
@@ -10,6 +11,9 @@ export default function Card({ deleteTank, title, text, fish, img }) {
       <CardList role="list">
         <li>
           <strong>Fische: {fish} </strong>
+        </li>
+        <li>
+          <strong>Pflanzen: {plant} </strong>
         </li>
         <li>
           <strong>Beschreibung: {text}</strong>
@@ -48,17 +52,7 @@ const CardList = styled.ul`
   margin-bottom: 10px;
 `;
 
-const DeleteButton = styled.button`
-  background: #28382c;
-  color: #dfbe6f;
-  font-size: 1rem;
-  border: none;
-  border-radius: 2px;
-  padding: 0.5rem;
-`;
-
 const ImageContainer = styled.div`
-  margin: 0.5rem;
   position: relative;
   overflow: hidden;
   border: 2 solid #28382c;
@@ -68,8 +62,5 @@ const ImageContainer = styled.div`
 `;
 
 const ImageTank = styled.img`
-  display: inline;
-
-  height: 100%;
   width: 100%;
 `;

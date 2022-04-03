@@ -2,24 +2,23 @@ import { useState } from 'react';
 import styled from 'styled-components';
 import { DetailButton } from '../components/Button.js';
 
-export default function FishCard({ fish }) {
+export default function FishCard({ fish, toggleBookmark }) {
   const [showDetails, setShowDetails] = useState(false);
   return (
     <FishContainer>
       <FishName>{fish.FishGerman}</FishName>
-
-      <ContainerFishProperties>
-        <FishNameLatin>
-          <strong>{fish.FishLatin} </strong>
-        </FishNameLatin>
-
+      <FishProperties>
         <FishImage
           src={fish.Image}
           alt={fish.FishName}
-          width={80}
-          height={80}
+          width={140}
+          height={140}
         ></FishImage>
-      </ContainerFishProperties>
+
+        <FishNameLatin>
+          <strong>{fish.FishLatin} </strong>
+        </FishNameLatin>
+      </FishProperties>
       <DetailButton type="button" onClick={toggleProperties}>
         {showDetails
           ? 'Eigenschaften ausblenden...'
@@ -68,12 +67,21 @@ const FishContainer = styled.div`
   border: 2px solid #28382c;
   border-radius: 2px;
   opacity: 0.95;
-  margin: 20px;
+  margin: 10px;
   height: auto;
-  box-shadow: 0px 0.05px 5px 2px #28382c;
+  display: grid;
+  grid-auto-rows: 1fr;
+  grid-template-columns: 1.1fr;
+  grid-template-rows: 0.2fr 1fr 0.3fr;
+  gap: 2px 0px;
+  grid-template-areas:
+    'header'
+    'main'
+    'footer';
 `;
 
-const FishName = styled.h3`
+const FishName = styled.h2`
+  grid-area: header;
   margin-left: 24px;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 1.2rem;
@@ -82,28 +90,30 @@ const FishName = styled.h3`
   padding: 10px;
 `;
 
-const ContainerFishProperties = styled.div`
+const FishProperties = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-content: space-evenly;
-  font-family: Arial, Helvetica, sans-serif;
-  color: #28382c;
-  margin: 0.1em 20px 10px 34px;
-  opacity: 0.9;
-`;
-
-const FishNameLatin = styled.div`
-  box-sizing: border-box;
-  justify-self: start;
-  padding: 2px;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1.7fr 0.3fr;
+  gap: 0px 0px;
+  grid-area: main;
 `;
 
 const FishImage = styled.img`
-  box-sizing: border-box;
-  justify-self: end;
-  border-radius: 50px;
+  grid-area: 1 / 1 / 3 / 2;
+  justify-self: center;
+  border-radius: 50%;
   border: 2px solid #28382c;
-  padding: 2px; ;
+  padding: 2px;
+  margin-bottom: 30px;
+`;
+
+const FishNameLatin = styled.h3`
+  grid-area: 2 / 1 / 3 / 2;
+  box-sizing: border-box;
+  justify-self: center;
+  margin-top: 0.2rem;
+
+  font-size: 1rem;
 `;
 
 const PropertyList = styled.ul`
@@ -114,4 +124,11 @@ const PropertyList = styled.ul`
   opacity: 0.8;
   margin-left: 34px;
   margin-bottom: 10px;
+`;
+
+const BookmarkButton = styled.button`
+  border-style: none;
+  background: transparent;
+  position: absolute;
+  top: 100px;
 `;
