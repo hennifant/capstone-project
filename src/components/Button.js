@@ -32,7 +32,7 @@ const DeleteButton = styled(Button)`
   padding: 0.5rem;
 
   &:active {
-    box-shadow: 2px 2px 2px #ff6347;
+    box-shadow: 0px 2px 0px 0px #ff6347;
     color: #ff6347;
   }
 `;
@@ -125,7 +125,6 @@ const NavigateButton = styled(Button)`
 
   &:active {
     box-shadow: none;
-    font-size: 28px;
   }
 `;
 
