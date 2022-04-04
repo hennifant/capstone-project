@@ -7,7 +7,7 @@ const Button = styled.button`
   }
 
   &:active {
-    box-shadow: 2px 2px 2px #dfbe6f;
+    box-shadow: 0px 2px 0px 0px #dfbe6f;
   }
 `;
 
@@ -30,12 +30,9 @@ const DeleteButton = styled(Button)`
   border: none;
   border-radius: 2px;
   padding: 0.5rem;
-  &:hover {
-    transform: perspective(500px) rotateX(15deg);
-  }
 
   &:active {
-    box-shadow: 2px 2px 2px #ff6347;
+    box-shadow: 0px 2px 0px 0px #ff6347;
     color: #ff6347;
   }
 `;
@@ -117,3 +114,18 @@ const ImageUploadButton = styled(Button)`
 `;
 
 export { ImageUploadButton };
+
+const NavigateButton = styled(Button)`
+  position: absolute;
+  background: transparent;
+  color: #dfbe6f;
+  font-size: 26px;
+  top: 4px;
+  left: 1px;
+
+  &:active {
+    box-shadow: none;
+  }
+`;
+
+export { NavigateButton };
