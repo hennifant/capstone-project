@@ -3,7 +3,7 @@ import userEvent from '@testing-library/user-event';
 import RandomFishCard from './RandomFishCard';
 
 describe('RandomFishCard', () => {
-  it('render a div with heading, list, and button  to show more information of a fish', () => {
+  it('render a div with heading, list, and button to show more information of a fish', () => {
     render(
       <RandomFishCard
         fish={{
@@ -23,7 +23,7 @@ describe('RandomFishCard', () => {
     );
 
     const fishName = screen.getByRole('heading', { level: 3 });
-    expect(fishName).toHaveTextContent('Siamesischer Kampffisch');
+    expect(fishName).toHaveTextContent('Betta splendens');
 
     const image = screen.getByRole('img');
     expect(image).toBeInTheDocument();

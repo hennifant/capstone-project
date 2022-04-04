@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { useNavigate } from 'react-router-dom';
 
 import Header from '../components/Header.js';
 import NavigationBar from '../components/NavigationBar.js';
@@ -6,6 +7,7 @@ import BrateCard from '../components/BrateCard.js';
 import SearchBar from '../components/SearchBar.js';
 import FilterSearch from '../components/FilterSearch.js';
 import ScrollToTop from '../components/ScrollToTop.js';
+import { NavigateButton } from '../components/Button.js';
 
 export default function InverteBratesListPage({
   brates,
@@ -15,9 +17,13 @@ export default function InverteBratesListPage({
   searchFish,
   newFilter,
 }) {
+  const navigate = useNavigate();
   return (
     <PageContainer>
-      <Header>Wirbellose Datenbank</Header>
+      <Header>
+        <NavigateButton onClick={() => navigate(-1)}>&#8617;</NavigateButton>
+        Wirbellose Datenbank
+      </Header>
       <BratelistContainer>
         <SearchContainer>
           <SearchBar

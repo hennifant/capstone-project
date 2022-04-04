@@ -15,6 +15,7 @@ export default function DatabasePage() {
   return (
     <PageContainer>
       <Header>Datenbank</Header>
+
       <BoxContainer>
         <TextContainer>Wählen Sie eine Datenbank</TextContainer>
         <NavigationContainer>
