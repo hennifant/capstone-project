@@ -9,7 +9,7 @@ import { SubmitButton, DeleteButton } from './Button.js';
 
 export default function CreateTankForm({ newTank, setNewTank }) {
   const navigate = useNavigate();
-  const [tankImage, setTankImage] = useState('');
+  const [image, setImage] = useState('');
   const [inputData, setInputData] = useState({
     id: nanoid(),
     title: '',
@@ -39,8 +39,8 @@ export default function CreateTankForm({ newTank, setNewTank }) {
         <ImageUpload
           inputData={inputData}
           setInputData={setInputData}
-          tankImage={tankImage}
-          setTankImage={setTankImage}
+          image={image}
+          setImage={setImage}
         />
         <input
           onChange={event =>

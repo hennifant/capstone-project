@@ -56,9 +56,9 @@ export default function ImageUpload({ inputData, setImage, image }) {
       {image ? (
         <Preview>
           <CancelButton onClick={handleRemoveImage}>
-            <img src={cancel} width="10" alt="Thumb" />
+            <img src={cancel} width="14" alt="Thumb" />
           </CancelButton>
-          <img src={image} alt="Delete" height="20px" width="20px" />
+          <img src={image} alt="Delete" height="auto" width="200px" />
         </Preview>
       ) : (
         <div>
@@ -99,10 +99,10 @@ const Preview = styled.div`
 
 const CancelButton = styled.button`
   grid-area: 1 / 3 / 2 / 4;
-
+  background-color: none;
   border: none;
   background: none;
   position: absolute;
-  right: 0.5rem;
-  top: 0.75rem;
+  right: 1.8rem;
+  top: 5.75rem;
 `;
