@@ -50,9 +50,7 @@ export default function ImageUpload({ inputData, setImage, image }) {
 
   return (
     <UploadContainer>
-      {isUploading && (
-        <UploadProcess>Lädt Bild hoch...{process}%</UploadProcess>
-      )}
+      {isUploading && <UploadProcess>Upload...{process}%</UploadProcess>}
       {image ? (
         <Preview>
           <CancelButton onClick={handleRemoveImage}>
