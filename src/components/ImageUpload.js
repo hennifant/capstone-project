@@ -56,7 +56,7 @@ export default function ImageUpload({ inputData, setImage, image }) {
           <CancelButton onClick={handleRemoveImage}>
             <img src={cancel} width="14" alt="Thumb" />
           </CancelButton>
-          <img src={image} alt="Delete" height="auto" width="200px" />
+          <img src={image} alt="Delete" height="100%" width="100%" />
         </Preview>
       ) : (
         <div>
@@ -77,6 +77,7 @@ export default function ImageUpload({ inputData, setImage, image }) {
 }
 
 const UploadContainer = styled.div`
+  border: 1px solid #28382c;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr;
@@ -97,10 +98,10 @@ const Preview = styled.div`
 
 const CancelButton = styled.button`
   grid-area: 1 / 3 / 2 / 4;
-  background-color: none;
+  background-color: transparent;
   border: none;
-  background: none;
+  background: transparent;
   position: absolute;
-  right: 1.8rem;
-  top: 5.75rem;
+  right: 2.8rem;
+  top: 7.25rem;
 `;
