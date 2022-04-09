@@ -135,14 +135,6 @@ const StyledForm = styled.form`
     font-family: Arial, Helvetica, sans-serif;
     font-size: 1rem;
   }
-  button {
-    background: #28382c;
-    color: #dfbe6f;
-    font-size: 1rem;
-    border: none;
-    border-radius: 2px;
-    padding: 0.5rem;
-  }
 
   input {
     resize: none;
